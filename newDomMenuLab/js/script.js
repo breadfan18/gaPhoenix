@@ -58,9 +58,12 @@ subMenuEl.style.top = '0';
 let topMenuLinks = document.querySelectorAll('#top-menu a');
 let showingSubMenu = false;
 
+// Task 5.2 - create the event listener function 
 function runIt(e){
   e.preventDefault();
   let currentElement = e.target;
+
+  // Task 5.3
   if(currentElement.tagName !== 'A') return;
   if(currentElement.classList.contains('active')){
     currentElement.classList.remove('active');
@@ -69,20 +72,48 @@ function runIt(e){
     return;
   }
 
+  // Task 5.4 
   for (link of topMenuLinks){
     link.classList.remove('active');
   }
 
+  // Task 5.5 
   currentElement.classList.add('active');
 
+  // Task 5.6
   let currentElementText = currentElement.textContent;
-
+  let currentElementSubLinks = {};
   menuLinks.forEach(link => {
     if(link.text === currentElementText){
-      if (link.subLinks) showingSubMenu = true;
+       if(link.subLinks){
+        currentElementSubLinks = link.subLinks;
+        console.log(currentElementSubLinks);
+       } 
     }
   });
+  if (currentElementSubLinks) showingSubMenu = true;
 
+  // Task 5.7
+  if(showingSubMenu) {
+    subMenuEl.style.top = '100%';
+    buildSubMenu(currentElementSubLinks);
+  }
+  else{
+    subMenuEl.style.top = '0';
+  }
+
+
+}
+
+// Task 5.8
+function buildSubMenu(subLinks) {
+  subMenuEl.textContent = '';
+  subLinks.forEach(link => {
+    let newElem = document.createElement('a');
+    newElem.classList.add('href', link.href);
+    newElem.textContent = link.text;
+    subMenuEl.appendChild(newElem);
+  });
 }
 
 topMenuEl.addEventListener('click', runIt);

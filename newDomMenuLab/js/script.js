@@ -55,10 +55,10 @@ subMenuEl.style.position = 'absolute'
 subMenuEl.style.top = '0';
 
 // Task 5
-let allAElements = document.querySelectorAll('#top-menu  a');
+let topMenuLinks = document.querySelectorAll('#top-menu a');
 let showingSubMenu = false;
 
-topMenuEl.addEventListener('click', (e) => {
+function runIt(e){
   e.preventDefault();
   let currentElement = e.target;
   if(currentElement.tagName !== 'A') return;
@@ -66,23 +66,33 @@ topMenuEl.addEventListener('click', (e) => {
     currentElement.classList.remove('active');
     showingSubMenu = false;
     subMenuEl.style.top = 0;
-    
+    return;
   }
-})
 
-
-function letters(array1){
-  let returnArr = [];
-  for (let i = 0; i < array1.length; i++) {
-    const currentElement = array1[i];
-    for (let j = 1; j < array.length; j++) {
-      
-      
-    }
-
-    
-    
+  for (link of topMenuLinks){
+    link.classList.remove('active');
   }
+
 }
 
-console.log(letters(['a', 'b', 'c']));
+topMenuEl.addEventListener('click', runIt);
+
+
+
+
+
+// function letters(array1){
+//   let returnArr = [];
+//   for (let i = 0; i < array1.length; i++) {
+//     const currentElement = array1[i];
+//     for (let j = i+1; j < array.length; j++) {
+//       const 
+      
+//     }
+
+    
+    
+//   }
+// }
+
+// console.log(letters(['a', 'b', 'c']));

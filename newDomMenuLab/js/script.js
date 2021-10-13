@@ -73,6 +73,16 @@ function runIt(e){
     link.classList.remove('active');
   }
 
+  currentElement.classList.add('active');
+
+  let currentElementText = currentElement.textContent;
+
+  menuLinks.forEach(link => {
+    if(link.text === currentElementText){
+      if (link.subLinks) showingSubMenu = true;
+    }
+  });
+
 }
 
 topMenuEl.addEventListener('click', runIt);

@@ -87,11 +87,13 @@ function runIt(e){
     if(link.text === currentElementText){
        if(link.subLinks){
         currentElementSubLinks = link.subLinks;
-        console.log(currentElementSubLinks);
        } 
     }
   });
-  if (currentElementSubLinks) showingSubMenu = true;
+  //following will set to show sub menu, if currentElementSubLinks is not empty (Falsy)s
+  if (currentElementSubLinks && currentElement.textContent !== 'about') showingSubMenu = true;
+  // Task 6.4
+  else if (currentElement.textContent === 'about') mainEl.textContent = '<h1>about</h1>'
 
   // Task 5.7
   if(showingSubMenu) {
@@ -116,7 +118,30 @@ function buildSubMenu(subLinks) {
   });
 }
 
+// Task 6.0
+function runSubMenu(e) {
+  e.preventDefault();
+  let currentElem = e.target;
+  if (currentElem.tagName !== 'A') return;
+
+  // Task 6.1
+  showingSubMenu = false;
+  subMenuEl.style.top = '0';
+
+  // Task 6.2
+  topMenuLinks.forEach(link => {
+    link.classList.remove('active')
+  });
+
+  // Task 6.3 
+  mainEl.innerHTML = `<h1>${currentElem.textContent}</h1>`
+
+
+}
+
 topMenuEl.addEventListener('click', runIt);
+subMenuEl.addEventListener('click', runSubMenu);
+
 
 
 

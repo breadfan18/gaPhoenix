@@ -26,7 +26,7 @@ var menuLinks = [
       { text: "sign out", href: "/account/signout" },
     ],
   },
-]
+];
 
 // Task 1 - 3
 let mainEl = document.querySelector('main');
@@ -81,15 +81,18 @@ function runIt(e){
   currentElement.classList.add('active');
 
   // Task 5.6
-  let currentElementText = currentElement.textContent;
   let currentElementSubLinks = {};
-  menuLinks.forEach(link => {
-    if(link.text === currentElementText){
-       if(link.subLinks){
-        currentElementSubLinks = link.subLinks;
-       } 
-    }
-  });
+  // menuLinks.forEach(link => {
+  //   if(link.text === currentElement.textContent){
+  //      if(link.subLinks){
+  //       currentElementSubLinks = link.subLinks;
+  //      } 
+  //   }
+  // });
+  let currentMenuLinkObject = menuLinks.find(link => link.text === currentElement.textContent);
+  currentMenuLinkObject.subLinks ? currentElementSubLinks = currentMenuLinkObject.subLinks : null
+  
+
   //following will set to show sub menu, if currentElementSubLinks is not empty (Falsy)s
   if (currentElementSubLinks && currentElement.textContent !== 'about') showingSubMenu = true;
   // Task 6.4
@@ -140,7 +143,7 @@ function runSubMenu(e) {
 }
 
 topMenuEl.addEventListener('click', runIt);
-subMenuEl.addEventListener('click', runSubMenu);
+// subMenuEl.addEventListener('click', runSubMenu);
 
 
 

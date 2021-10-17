@@ -2,11 +2,12 @@ let $skillField = $('#addSkillField');
 let $levelField = $('#addLevelField');
 let $addButton = $('.btn-success');
 let $removeButton = $('td .btn-danger');
+let skillCounter = 1;
 
 function addSkill() {
     let $skillToAdd = $(`
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">${skillCounter}</th>
             <td>${$skillField.val().toUpperCase()}</td>
             <td>${$levelField.val()}</td>
             <td>
@@ -15,7 +16,8 @@ function addSkill() {
         </tr>   
     `);
 
-    $('tbody').append($skillToAdd)
+    $('tbody').append($skillToAdd);
+    skillCounter++;
 }
 
 function removeSkill(e) {

@@ -30,7 +30,6 @@ function loadSkillsFromStorage() {
         `)
         $('tbody').append($skillToLoad);
     }
-
 }
 
 function addSkill() {
@@ -47,15 +46,21 @@ function addSkill() {
     `);
 
     $('tbody').append($skillToAdd);
-    addToLocalStorage(skillCounter, $skillField.val().toUpperCase(), $levelField.val(), `skill${skillCounter}`);
+    addToLocalStorage(skillCounter, $skillField.val().toUpperCase(), $levelField.val(), skillCounter);
     $skillField.val('');
     $levelField.val('');
 }
 
 function removeSkill(e) {
     $(this).closest('tr').fadeOut(1000, function () {
-        $(this).remove();
+        console.log($(this));
+        let removedSkillNumber = $($(this).children()[0]).text();
+
+        // console.log($(this).closest('th'));
+        // $(this).remove();
+        skillsDb.removeItem(removedSkillNumber);
     })
+
 }
 
 loadSkillsFromStorage();

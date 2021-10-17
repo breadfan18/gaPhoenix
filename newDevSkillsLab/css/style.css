@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillsContainer {
+    margin-top: 100px;
+}
+
+.table {
+    max-width: 800px;
+}
+
+#addSkillSection {
+    display: flex;
+    justify-content: center;
+
+}
+
+#addSkillSection * {
+    margin: 10px;
+}
+
+
+h1 {
+    background-color: green;
+    color: white;
+    padding: 20px;
+}

@@ -3,6 +3,16 @@ let $levelField = $('#addLevelField');
 let $addButton = $('.btn-success');
 let $removeButton = $('td .btn-danger');
 let skillCounter = 1;
+let skillsDb = window.localStorage;
+
+function addToLocalStorage(number, skill, level, key) {
+    let storedSkill = {
+        number: number,
+        skill: skill,
+        level: level
+    }
+    skillsDb.setItem(key, JSON.stringify(storedSkill));
+}
 
 function addSkill() {
     let $skillToAdd = $(`
@@ -17,13 +27,13 @@ function addSkill() {
     `);
 
     $('tbody').append($skillToAdd);
+    
+    addToLocalStorage(skillCounter, $skillField.val().toUpperCase(), $levelField.val(), `skill${skillCounter}`);
     skillCounter++;
 }
 
 function removeSkill(e) {
-    let $clickedButton = $(e.target);
-    let $closestRow = $clickedButton.closest('tr');
-    $closestRow.fadeOut(1000, function (){
+    $(this).closest('tr').fadeOut(1000, function (){
         $(this).remove();
     })
 }
@@ -31,3 +41,4 @@ function removeSkill(e) {
 $($addButton).on('click', addSkill);
 $('.table > tbody').on('click', 'button', removeSkill);
 
+console.log(skillsDb);

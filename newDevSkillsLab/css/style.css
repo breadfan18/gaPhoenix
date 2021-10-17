@@ -13,6 +13,11 @@ body {
     max-width: 800px;
 }
 
+.table thead {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
 #addSkillSection {
     display: flex;
     justify-content: center;

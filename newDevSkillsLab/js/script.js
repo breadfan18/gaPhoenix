@@ -1,4 +1,5 @@
-let $inputField = $('#addSkillField');
+let $skillField = $('#addSkillField');
+let $levelField = $('#addLevelField');
 let $addButton = $('.btn-success');
 let $removeButton = $('td .btn-danger');
 
@@ -6,8 +7,8 @@ function addSkill() {
     let $skillToAdd = $(`
         <tr>
             <th scope="row">1</th>
-            <td>${$inputField.val().toUpperCase()}</td>
-            <td>6</td>
+            <td>${$skillField.val().toUpperCase()}</td>
+            <td>${$levelField.val()}</td>
             <td>
                 <button class="btn btn-danger btn-sm">Remove</button>
             </td>

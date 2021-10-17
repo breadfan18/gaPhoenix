@@ -16,8 +16,7 @@ function addToLocalStorage(number, skill, level, key) {
 
 function loadSkillsFromStorage() {
     for (let i = 1; i <= skillsDb.length; i++) {
-        let skill =  JSON.parse(skillsDb.getItem(`skill${i}`))
-        console.log(skill);
+        let skill =  JSON.parse(skillsDb.getItem(i))
         let $skillToLoad = $(`
             <tr>
                 <th scope="row">${skill.number}</th>

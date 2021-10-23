@@ -5,7 +5,9 @@
 
 
 // Cached elements
-
+const $title = $('#title')
+const $year = $('#year')
+const $rated = $('#rated')
 
 // Event Listeners
 
@@ -23,6 +25,9 @@ $.ajax('https://www.omdbapi.com/?apikey=6ddc69a0&t=Frozen')
         // success callback 
         function (data) {
             console.log(data);
+            console.log(data.Title)
+            console.log(data.Year)
+            console.log(data.Rated)
         },
         // failure callback
         function (error) {

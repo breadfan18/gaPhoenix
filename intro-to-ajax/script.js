@@ -5,14 +5,19 @@
 
 
 // Cached elements
-const $title = $('#title')
-const $year = $('#year')
-const $rated = $('#rated')
+const $title = $('#title');
+const $year = $('#year');
+const $rated = $('#rated');
+const $form = $('form');
+
 
 // Event Listeners
-
+$form.on('submit', handleSubmit)
 
 // Functions 
+function handleSubmit() {
+    
+}
 
 
 // Using jQuery's $.ajax() method - we use it to request information from a resource using ajax

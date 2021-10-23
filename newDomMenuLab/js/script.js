@@ -82,13 +82,6 @@ function runIt(e){
 
   // Task 5.6
   let currentElementSubLinks = {};
-  // menuLinks.forEach(link => {
-  //   if(link.text === currentElement.textContent){
-  //      if(link.subLinks){
-  //       currentElementSubLinks = link.subLinks;
-  //      } 
-  //   }
-  // });
   let currentMenuLinkObject = menuLinks.find(link => link.text === currentElement.textContent);
   currentMenuLinkObject.subLinks ? currentElementSubLinks = currentMenuLinkObject.subLinks : null
   

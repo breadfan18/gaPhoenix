@@ -1,4 +1,6 @@
 // Constants - data that does NOT change 
+const BASE_URL = 'https://www.omdbapi.com/';
+const API_KEY = '6ddc69a0';
 
 
 // Variables - data that changes
@@ -9,14 +11,30 @@ const $title = $('#title');
 const $year = $('#year');
 const $rated = $('#rated');
 const $form = $('form');
-
+const $input = $('input[type="text"]');
 
 // Event Listeners
 $form.on('submit', handleSubmit)
 
 // Functions 
-function handleSubmit() {
-    
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const movieTitle = $input.val();
+
+    $.ajax(`${BASE_URL}?apikey=${API_KEY}&t=${movieTitle}`)
+        .then(
+            // success callback 
+            function (data) {
+                $title.text(data.Title)
+                $year.text(data.Year)
+                $rated.text(data.Rated)
+            },
+            // failure callback
+            function (error) {
+                console.log('BAD REQUEST', error)
+            }
+        )
 }
 
 
@@ -25,17 +43,3 @@ function handleSubmit() {
 
 
 
-$.ajax('https://www.omdbapi.com/?apikey=6ddc69a0&t=Frozen')
-    .then(
-        // success callback 
-        function (data) {
-            console.log(data);
-            $title.text(data.Title)
-            $year.text(data.Year)
-            $rated.text(data.Rated)
-        },
-        // failure callback
-        function (error) {
-            console.log('BAD REQUEST', error)
-        }
-    )

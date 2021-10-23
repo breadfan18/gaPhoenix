@@ -25,9 +25,9 @@ $.ajax('https://www.omdbapi.com/?apikey=6ddc69a0&t=Frozen')
         // success callback 
         function (data) {
             console.log(data);
-            console.log(data.Title)
-            console.log(data.Year)
-            console.log(data.Rated)
+            $title.text(data.Title)
+            $year.text(data.Year)
+            $rated.text(data.Rated)
         },
         // failure callback
         function (error) {

@@ -22,7 +22,7 @@ $(function () {
 
         const movieTitle = $input.val();
 
-        $.ajax(`${BASE_URL}?apikey=${API_KEY}&t=${movieTitle}`)
+        $.ajax(`${BASE_URL}? apikey=${API_KEY}&t=${movieTitle}`)
             .then(
                 // success callback 
                 function (data) {

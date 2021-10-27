@@ -11,3 +11,8 @@ body {
     font-family: Helvetica;
 }
 
+header, footer {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+}

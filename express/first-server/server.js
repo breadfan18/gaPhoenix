@@ -23,8 +23,10 @@ app.get('/', (req, res) => {
     res.json('Hello World')
 })
 
-app.get('/people', (req, res) => {
-    res.json([{name: 'Swaroop', city: 'San Francisco'}, {name: 'Anshu', city: 'Washington DC'}])
+const catData = [{name: 'Whiskers'}, {name: 'Anshu'}];
+
+app.get('/cats/:catsIndex', (req, res) => {
+    res.json(catData[req.params.catsIndex]);
 })
 
 // tell the application to listen for requests from the client or the browser

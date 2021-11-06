@@ -7,6 +7,13 @@ const plants = [
     "Witches' Butter",
   ]
 
+const categories = [
+    "Tropical",
+    "Succulents",
+    "Cactus",
+    "Birds of Paradise",
+  ]
+
 
 // Initialize the app
 const app = express();
@@ -27,9 +34,18 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Plants Website');
 })
 
-app.get('/:indexOfPlantsArray', (req, res) => {
-    res.send(plants[req.params.indexOfPlantsArray]);
+app.get('/plants/categories', (req, res) => {
+    console.log(req.params);
+    res.send(categories);
 })
+
+app.get('/plants/:index', (req, res) => {
+    console.log(req.params);
+    res.send(`
+        <h1>${plants[req.params.index]}</h1>
+    `);
+})
+
 
 
 // Tell the app to listen

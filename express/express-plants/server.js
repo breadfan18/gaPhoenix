@@ -23,6 +23,10 @@ const port = 3000;
 
 
 // Mount routes
+app.get('/', (req, res) => {
+    res.send('Welcome to the Plants Website');
+})
+
 app.get('/:indexOfPlantsArray', (req, res) => {
     res.send(plants[req.params.indexOfPlantsArray]);
 })

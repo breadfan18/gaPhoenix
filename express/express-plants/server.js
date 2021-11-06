@@ -23,7 +23,8 @@ const app = express();
 
 
 // Setup a port value
-const port = 3000;
+require('dotenv').config()
+const port = process.env.PORT;
 
 
 // Mount middleware

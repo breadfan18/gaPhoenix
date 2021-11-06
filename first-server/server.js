@@ -19,6 +19,13 @@ const app = express();
 
 
 // define our routes
+app.get('/', (req, res) => {
+    res.json('Hello World')
+})
 
+app.get('/people', (req, res) => {
+    res.json([{name: 'Swaroop', city: 'San Francisco'}, {name: 'Anshu', city: 'Washington DC'}])
+})
 
 // tell the application to listen for requests from the client or the browser
+app.listen(3000, () => console.log('Express is listening for requests from the browser') )

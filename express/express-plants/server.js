@@ -46,7 +46,28 @@ app.get('/plants/:index', (req, res) => {
     `);
 })
 
+app.get('/:firstName/:lastName', (req, res) => {
+    const title = req.query.title;
+    const location = req.query.location;
+    const name = req.params.firstName;
+
+    const phrase = `${name} is from ${location}, and is currently working as a ${title}`
+
+    res.send(phrase);
+})
 
 
 // Tell the app to listen
-app.listen(port, () => console.log('Express is listening at port ' + port))
+app.listen(port, () => console.log('Express is listening at port ' + port));
+
+
+// different types of routes: 
+/* 
+INDEX
+NEW 
+DELETE
+UPDATE
+CREATE
+EDIT
+SHOW
+*/

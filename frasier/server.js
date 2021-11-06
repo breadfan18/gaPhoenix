@@ -10,8 +10,12 @@ app.get('/frasier', (req, res) => {
     res.send('Once in a prep school, blah blah...');
 })
 
-app.get('niles', (req, res) => {
+app.get('/niles', (req, res) => {
     res.send('You know, sometimes I wonder...');
+})
+
+app.get('/Daphne', (req, res) => {
+    res.send('You know, sometimes I wonder...about Daphne');
 })
 
 

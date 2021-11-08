@@ -27,7 +27,6 @@ app.get('/calcquery/:num1/:num2', (req, res) => {
         case 'divide':
             res.send(`${parseInt(req.params.num1) / parseInt(req.params.num2)}`);
     }
-    
 })
 
 

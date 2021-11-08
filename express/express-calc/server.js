@@ -3,10 +3,18 @@ const app = express()
 
 const port = 3000
 
+let num1, num2;
 
 // Routes
-app.get('/calc/:num1/:num2', (req, res) => {
-    res.send(`The sum is: ${parseInt(req.params.num1) + parseInt(req.params.num2)}`)
+app.get('/:num1/:num2', (req, res) => {
+    
+    res.send(`
+        <p>Select Operation</p>
+        <a href="/calcquery/${req.params.num1}/${req.params.num2}?operation=sum">Sum</a>
+        <a href="/calcquery/${req.params.num1}/${req.params.num2}?operation=substract">Substract</a>
+        <a href="/calcquery/${req.params.num1}/${req.params.num2}?operation=multiply">Multiply</a>
+        <a href="/calcquery/${req.params.num1}/${req.params.num2}?operation=divide">Divide</a>
+    `)
 })
 
 app.get('/someroute', (req, res) => {
@@ -15,7 +23,6 @@ app.get('/someroute', (req, res) => {
 })
 
 app.get('/calcquery/:num1/:num2', (req, res) => {
-    
     switch(req.query.operation){
         case 'sum':
             console.log('Add them bitches');
@@ -28,8 +35,6 @@ app.get('/calcquery/:num1/:num2', (req, res) => {
             res.send(`${parseInt(req.params.num1) / parseInt(req.params.num2)}`);
     }
 })
-
-
 
 // Listener
 app.listen(port, () => {

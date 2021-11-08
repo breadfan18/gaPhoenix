@@ -4,7 +4,13 @@ const app = express();
 
 
 
-
+// Routes 
+app.get('/', (req, res) => {
+    res.send('Welllll')
+})
+app.get('/greeting', (req, res) => {
+    res.send('Hello Stranger');
+})
 
 
 // Listening

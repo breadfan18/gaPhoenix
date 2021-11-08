@@ -11,20 +11,19 @@ app.get('/', (req, res) => {
     `)
 })
 
-app.get('/:number_of_bottles', (req, res) => {
-    if (req.params.number_of_bottles === 96) {
-        res.send(`
-            ${req.params.number_of_bottles} Bottles of beer on the wall
-            
-        `)
-    } else {
-        res.send(`
-            ${--beerCounter} Bottles of beer on the wall
-            <a href="/${--beerCounter}">Take one down, pass it around</a>
-        `)
-    }
+app.get('/0', (req, res) => {
+    res.send(`
+        0 Bottles of beer on the wall
+    
+    `)
 })
 
+app.get('/:number_of_bottles', (req, res) => {
+    res.send(`
+            ${beerCounter} Bottles of beer on the wall
+            <a href="/${--beerCounter}">Take one down, pass it around</a>
+        `)
+})
 
 // Listening
 app.listen(3000, () => console.log('Express lab 2 is listening on port 3000'));

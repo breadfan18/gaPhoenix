@@ -6,31 +6,31 @@ const fruits = [
         id: 1,
         name: 'apple',
         color: 'blue',
-        readyToEat = true
+        readyToEa: true
     },
     {
         id: 2,
         name: 'apple',
         color: 'green',
-        readyToEat = false
+        readyToEat: false
     },
     {
         id: 3,
         name: 'orange',
         color: 'orange',
-        readyToEat = false
+        readyToEat: false
     },
     {
         id: 4,
         name: 'banana',
         color: 'green',
-        readyToEat = false
+        readyToEat: false
     },
     {
         id: 5,
         name: 'pineapple',
         color: 'yellow',
-        readyToEat = true
+        readyToEat: true
     },
 
 ]
@@ -41,8 +41,9 @@ app.get("/fruits/", (req, res) => {
 })
 
 // Show
-app.get("/fruits/:indexOfFruit", (req, res) => {
-    res.send(fruits[req.params.indexOfFruit])
+app.get("/fruits/:id", (req, res) => {
+    const foundFruit = fruits.find(fruit => fruit.id === parseInt(req.params.id));
+    res.send(foundFruit)
 })
 
 

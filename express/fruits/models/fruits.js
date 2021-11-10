@@ -3,7 +3,7 @@ const fruits = [
         id: 1,
         name: 'apple',
         color: 'blue',
-        readyToEa: true
+        readyToEat: true
     },
     {
         id: 2,
@@ -31,3 +31,6 @@ const fruits = [
     },
 
 ]
+
+
+module.exports = fruits;

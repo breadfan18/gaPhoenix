@@ -6,8 +6,15 @@ const port = 3000
 let num1, num2;
 
 // Routes
+app.get('/num1', (req, res) => {
+    res.send(`
+        <p>Enter First Num: </p>
+        <input id="num1" type="text">
+        <a href="calcquery/${document.getElementById('num1').value}}/num2">Set First Num</a>
+    `)
+})
+
 app.get('/:num1/:num2', (req, res) => {
-    
     res.send(`
         <p>Select Operation</p>
         <a href="/calcquery/${req.params.num1}/${req.params.num2}?operation=sum">Sum</a>

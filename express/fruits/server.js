@@ -19,6 +19,8 @@ app.get("/fruits/:id", (req, res) => {
     });
 })
 
+// Middleware
+app.use(express.static('public'));
 
 
 // App listener

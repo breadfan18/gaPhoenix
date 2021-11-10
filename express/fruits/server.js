@@ -2,11 +2,12 @@ const express = require("express");
 const fruits = require('./models/fruits');
 const app = express()
 
-console.log(fruits)
 
 // Index
 app.get("/fruits/", (req, res) => {
-    res.send(fruits)
+    res.render('index.ejs', {
+        fruits
+    })
 })
 
 // Show

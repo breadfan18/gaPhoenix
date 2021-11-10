@@ -42,6 +42,10 @@ app.get("/superheroes/", (req, res) => {
     res.send(superheroes)
 })
 
+app.get("/villians/", (req, res) => {
+    res.send(villians)
+})
+
 // Show
 app.get("/superheroes/:name", (req, res) => {
     const currentHero = superheroes.find(hero => hero.name.toLowerCase() === req.params.name.toLowerCase())
@@ -51,6 +55,17 @@ app.get("/superheroes/:name", (req, res) => {
             <li>${currentHero.powers[0]}</li>
             <li>${currentHero.powers[1]}</li>
             <li>${currentHero.powers[2]}</li>
+        </ul>
+    `);
+})
+
+app.get("/villians/:name", (req, res) => {
+    const currentVillian = villians.find(villian => villian.name.toLowerCase() === req.params.name.toLowerCase())
+    res.send(`
+        <h1>${currentVillian.name}</h1>
+        <ul>
+            <li>${currentVillian.powers[0]}</li>
+            <li>${currentVillian.powers[1]}</li>
         </ul>
     `);
 })

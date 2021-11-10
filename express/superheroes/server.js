@@ -1,6 +1,41 @@
 const express = require("express")
 const app = express()
-const superheroes = [ 'Superman', 'Wonder Woman', 'Black Panther' ];
+const superheroes = [ 
+    {
+        name: "Superman", 
+        powers: ['flight', 'invulnerability', 'x-ray vision']
+    },
+    {
+        name: "Spiderman", 
+        powers: ['spiderwebs', 'mask', 'hot chick']
+    },
+    {
+        name: "Iron Man", 
+        powers: ['brain power', 'armor', 'money']
+    },
+    {
+        name: "Batman", 
+        powers: ['emotional', 'cop friends', 'technology']
+    }
+ ];
+
+ const villians = [
+    {
+      name: 'Lex Luthor',
+      powers: ['super brain'],
+    },
+    {
+      name: 'Ares',
+      powers: ['shape shifting', 'teleporting'],
+    },
+    {
+      name: 'Killmonger',
+      powers: [
+        'ability to fit in Black Panther\'s suit',
+        'internet agreement that he looks badass',
+      ],
+    },
+  ];
 
 // Index
 app.get("/superheroes/", (req, res) => {
@@ -8,8 +43,16 @@ app.get("/superheroes/", (req, res) => {
 })
 
 // Show
-app.get("/superheroes/:index", (req, res) => {
-    res.send(superheroes[req.params.index]);
+app.get("/superheroes/:name", (req, res) => {
+    const currentHero = superheroes.find(hero => hero.name.toLowerCase() === req.params.name.toLowerCase())
+    res.send(`
+        <h1>${currentHero.name}</h1>
+        <ul>
+            <li>${currentHero.powers[0]}</li>
+            <li>${currentHero.powers[1]}</li>
+            <li>${currentHero.powers[2]}</li>
+        </ul>
+    `);
 })
 
 // App listener

@@ -32,7 +32,7 @@ app.post('/fruits', (req, res) => {
     req.body.id = fruits.length + 1;
 
     // we need to cast the string value of 'on' OR the absense of that value to a boolean
-    req.body.readyToEat ? req.body.readyToEat = true : req.body.readyToEat = false
+    req.body.readyToEat = !!req.body.readyToEat
 
     fruits.push(req.body);
 

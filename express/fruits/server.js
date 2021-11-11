@@ -3,7 +3,7 @@ const fruits = require('./models/fruits');
 const app = express()
 
 // Middleware
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 app.use(function(req, res, next) {
     console.log('I will run with each request');

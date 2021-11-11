@@ -8,13 +8,15 @@ app.use(express.static('public'));
 app.use(function(req, res, next) {
     console.log('I will run with each request');
     req.timeStamp = new Date();
-    next()
+    next();
 })
+
+app.use(express.urlencoded({ extended: false }))
 
 
 // Index
 app.get("/fruits/", (req, res) => {
-    console.log(req.timeStamp.toString())
+    console.log(req.timeStamp.toLocaleDateString())
     res.render('index.ejs', {
         fruits
     })
@@ -26,7 +28,15 @@ app.get('/fruits/new', (req, res) => {
 })
 
 app.post('/fruits', (req, res) => {
-    res.send('hi')
+    // since our fruit objects have an id property, we need to satisfy the id property requirement 
+    req.body.id = fruits.length + 1;
+
+    // we need to cast the string value of 'on' OR the absense of that value to a boolean
+    req.body.readyToEat ? req.body.readyToEat = true : req.body.readyToEat = false
+
+    fruits.push(req.body);
+
+    res.redirect('/fruits')
 })
 
 // Show

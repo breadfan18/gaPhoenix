@@ -25,6 +25,5 @@ app.get('/magic/Will%20I%20Be%20A%20Millionaire', (req, res) => {
     res.send(`Magic 8 ball response: <h1>${eightBall[Math.floor(Math.random()*eightBall.length)]}</h1>`);
 })
 
-x
 // Listening
 app.listen(3000, () => console.log('Express lab 2 is lisntening on port 3000'));

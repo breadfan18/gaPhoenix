@@ -22,7 +22,11 @@ app.get('/bakedgoods', (req, res) => {
 
 // show route
 app.get('/bakedgoods/:id', (req, res) => {
-  res.send(bakedGoods[req.params.id]);
+  const bakedGood = bakedGoods.find(good => parseInt(req.params.id) === good.id)
+
+  res.render('show.ejs', {
+    bakedGood
+  });
 });
 
 // =======================================

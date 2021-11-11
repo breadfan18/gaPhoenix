@@ -2,9 +2,19 @@ const express = require("express");
 const fruits = require('./models/fruits');
 const app = express()
 
+// Middleware
+app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+    console.log('I will run with each request');
+    req.timeStamp = new Date();
+    next()
+})
+
 
 // Index
 app.get("/fruits/", (req, res) => {
+    console.log(req.timeStamp.toString())
     res.render('index.ejs', {
         fruits
     })
@@ -28,8 +38,7 @@ app.get("/fruits/:id", (req, res) => {
     });
 })
 
-// Middleware
-app.use(express.static('public'));
+
 
 
 // App listener

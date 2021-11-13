@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +11,21 @@
     <script defer src="/js/script.js"></script>
     <title>Fruits App</title>
 </head>
+
 <body>
     <h1>Welcome to the Fruits Index</h1>
     <% fruits.forEach(fruit => { %>
-        <!-- <p><%= fruit.name %> </p> -->
-        <a href="/fruits/<%= fruit.id %> "><%= fruit.name %> </a>
-        <br>
+    <!-- <p><%= fruit.name %> </p> -->
+    <a href="/fruits/<%= fruit.id %> "><%= fruit.name %> </a>
+    <br>
+    <!-- ADD DELETE FORM HERE -->
+    <form>
+        <input type="submit" value="DELETE" />
+    </form>
     <% }) %>
     <br><br>
 
     <a href="/fruits/new">Add another fruit</a>
 </body>
+
 </html>

@@ -49,7 +49,10 @@ app.get("/fruits/:id", (req, res) => {
 })
 
 // Delete 
-
+app.delete('/fruits/:index', (req, res) => {
+    fruits.splice(req.params.index, 1)
+    res.redirect('/fruits');
+})
 
 
 // Put, which means Update

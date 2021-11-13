@@ -23,7 +23,7 @@ const app = express();
 
 
 // Setup a port value
-require('dotenv').config()
+require('dotenv').config
 const port = process.env.PORT;
 
 

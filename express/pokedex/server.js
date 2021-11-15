@@ -20,6 +20,14 @@ app.get('/pokemons', (req, res) => {
   });
 });
 
+
+// new route
+app.get('/pokemons/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+
+
 // show route
 app.get('/pokemons/:id', (req, res) => {
   const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)

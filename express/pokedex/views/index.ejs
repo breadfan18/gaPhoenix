@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Poke Index</title>
 </head>
 <body> 
     <% pokemons.forEach(pokemon => { %>
-        <a href="/pokemons/<%= pokemon.id %> "><img src=" <%= pokemon.img %> " alt="<%= pokemon.name %> "></a>
+        <div class="pokemonCont">
+            <a href="/pokemons/<%= pokemon.id %> "><img src=" <%= pokemon.img %> " alt="<%= pokemon.name %> "></a>
+            <a href="/pokemons/<%= pokemon.id %>/edit">Edit this Pokemon</a>
+        </div>
     <% }) %>
 </body>
 </html>

@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemonCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    min-width: 500px;
+    margin: 10px;
+    border-radius: 10px;
+}

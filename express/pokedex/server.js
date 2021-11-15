@@ -14,7 +14,8 @@ const pokemons = require('./models/pokemon');
 // =======================================
 //              MIDDLEWARE
 // =======================================
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); //access req.body
+app.use(express.static('public')) //makes public assets available
 
 
 // =======================================
@@ -51,11 +52,17 @@ app.post('/pokemons', (req, res) => {
         id: (pokemons.length+1).toString()
     }
 
-    console.log(newPoke);
     pokemons.push(newPoke);
     res.redirect('/pokemons');
 })
 
+// Update route
+app.get('/pokemons/:id/edit', (req, res) => {
+    res.render('edit.ejs', {
+        pokemon: pokemons[parseInt(req.params.id)],
+        index: parseInt(req.params.id)
+    })
+})
 
 
 // =======================================

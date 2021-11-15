@@ -21,7 +21,8 @@ app.get('/tip/:total/:tipPercentage', (req, res) => {
     res.send(`Total tip: ${req.params.total * (req.params.tipPercentage/100)}`);
 })
 
-app.get('/magic/Will%20I%20Be%20A%20Millionaire', (req, res) => {
+app.get('/magic/:question', (req, res) => {
+    const question = req.params.question;
     res.send(`Magic 8 ball response: <h1>${eightBall[Math.floor(Math.random()*eightBall.length)]}</h1>`);
 })
 

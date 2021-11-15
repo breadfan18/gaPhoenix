@@ -3,15 +3,19 @@ const fruits = require('./models/fruits');
 const app = express()
 
 // Middleware
-app.use(express.static('public'))
+app.use(express.static('public')) //makes public assets available
 
-app.use(function(req, res, next) {
+app.use(function(req, res, next) {  
     console.log('I will run with each request');
     req.timeStamp = new Date();
     next();
 })
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))  // this middleware creates req.body
+
+const methodOverride = require('method-override'); //method override
+app.use(methodOverride('_method'))
+
 
 
 // Index

@@ -14,15 +14,15 @@
 
 <body>
     <h1>Welcome to the Fruits Index</h1>
-    <% fruits.forEach(fruit => { %>
-    <!-- <p><%= fruit.name %> </p> -->
-    <a href="/fruits/<%= fruit.id %> "><%= fruit.name %> </a>
-    <br>
-    <!-- ADD DELETE FORM HERE -->
-    <form>
-        <input type="submit" value="DELETE" />
-    </form>
-    <% }) %>
+    <% for (let i = 0; i < fruits.length; i++) { %>
+        <a href="/fruits/<%= fruits[i].id %> "><%= fruits[i].name %> </a>
+        <br>
+
+        <!-- ADD DELETE FORM HERE -->
+        <form action="/fruits/<%= fruits[i] %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE" />
+        </form>
+    <% } %>
     <br><br>
 
     <a href="/fruits/new">Add another fruit</a>

@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 // =======================================
 // index route
 app.get('/pokemons', (req, res) => {
+    console.log(pokemons.length)
+
   res.render('index.ejs', {
     pokemons
   });
@@ -41,17 +43,12 @@ app.get('/pokemons/:id', (req, res) => {
   });
 });
 
-
-// new route
-app.get('/pokemons/new', (req, res) => {
-    res.render('new.ejs')
-})
-
 // post route
 app.post('/pokemons', (req, res) => {
+    
     const newPoke = {
         ...req.body,
-        id: '534'
+        id: (pokemons.length+1).toString()
     }
 
     console.log(newPoke);

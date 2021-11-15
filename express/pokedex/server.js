@@ -21,11 +21,11 @@ app.get('/pokemons', (req, res) => {
 });
 
 // show route
-app.get('/bakedgoods/:id', (req, res) => {
-  const bakedGood = bakedGoods.find(good => parseInt(req.params.id) === good.id)
+app.get('/pokemons/:id', (req, res) => {
+  const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
 
   res.render('show.ejs', {
-    bakedGood
+    thisPokemon
   });
 });
 

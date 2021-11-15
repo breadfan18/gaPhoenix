@@ -10,6 +10,13 @@ const port = 3000;
 // =======================================
 const pokemons = require('./models/pokemon');
 
+
+// =======================================
+//              MIDDLEWARE
+// =======================================
+app.use(express.urlencoded({ extended: false }));
+
+
 // =======================================
 //              ROUTES
 // =======================================
@@ -20,13 +27,10 @@ app.get('/pokemons', (req, res) => {
   });
 });
 
-
 // new route
 app.get('/pokemons/new', (req, res) => {
     res.render('new.ejs')
 })
-
-
 
 // show route
 app.get('/pokemons/:id', (req, res) => {
@@ -36,6 +40,25 @@ app.get('/pokemons/:id', (req, res) => {
     thisPokemon
   });
 });
+
+
+// new route
+app.get('/pokemons/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+// post route
+app.post('/pokemons', (req, res) => {
+    const newPoke = {
+        ...req.body,
+        id: '534'
+    }
+
+    console.log(newPoke);
+    // pokemons.push(newPoke);
+})
+
+
 
 // =======================================
 //              LISTENER

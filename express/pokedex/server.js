@@ -68,9 +68,14 @@ app.get('/pokemons/:id/edit', (req, res) => {
 })
 
 app.put('/pokemons/:id', (req, res) => {
-    pokemons[parseInt(req.params.id - 1)] = req.body;
+    let editedPoke = {
+        ...req.body,
+        id: req.params.id
+    }
+    pokemons[parseInt(req.params.id - 1)] = editedPoke;
     res.redirect(`/pokemons`);
 })
+
 
 
 // =======================================

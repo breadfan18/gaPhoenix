@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Edit <%= pokemon.name %></h1>
-    <form action="">
+    <form action="/pokemons/<%= pokemon.id %>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=pokemon.name%>" /><br />
-        Image: <input type="text" name="color" value="<%=pokemon.img%>" /><br /> 
+        Image: <input type="text" name="img" value="<%=pokemon.img%>" /><br /> 
         <input type="submit" value="Submit Changes">
     </form>
 </body>

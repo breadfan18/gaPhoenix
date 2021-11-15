@@ -16,6 +16,8 @@ const pokemons = require('./models/pokemon');
 // =======================================
 app.use(express.urlencoded({ extended: false })); //access req.body
 app.use(express.static('public')) //makes public assets available
+const methodOverride = require('method-override'); //method override
+app.use(methodOverride('_method'))
 
 
 // =======================================
@@ -25,9 +27,9 @@ app.use(express.static('public')) //makes public assets available
 app.get('/pokemons', (req, res) => {
     console.log(pokemons.length)
 
-  res.render('index.ejs', {
-    pokemons
-  });
+    res.render('index.ejs', {
+        pokemons
+    });
 });
 
 // new route
@@ -37,19 +39,19 @@ app.get('/pokemons/new', (req, res) => {
 
 // show route
 app.get('/pokemons/:id', (req, res) => {
-  const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
 
-  res.render('show.ejs', {
-    thisPokemon
-  });
+    res.render('show.ejs', {
+        thisPokemon
+    });
 });
 
 // post route
 app.post('/pokemons', (req, res) => {
-    
+
     const newPoke = {
         ...req.body,
-        id: (pokemons.length+1).toString()
+        id: (pokemons.length + 1).toString()
     }
 
     pokemons.push(newPoke);
@@ -58,10 +60,16 @@ app.post('/pokemons', (req, res) => {
 
 // Update route
 app.get('/pokemons/:id/edit', (req, res) => {
+    let index = parseInt(req.params.id - 1);
     res.render('edit.ejs', {
-        pokemon: pokemons[parseInt(req.params.id)],
-        index: parseInt(req.params.id)
+        pokemon: pokemons[index],
+
     })
+})
+
+app.put('/pokemons/:id', (req, res) => {
+    pokemons[parseInt(req.params.id - 1)] = req.body;
+    res.redirect(`/pokemons`);
 })
 
 
@@ -69,5 +77,5 @@ app.get('/pokemons/:id/edit', (req, res) => {
 //              LISTENER
 // =======================================
 app.listen(port, () => {
-  console.log(`Pokedex app listening on port: ${port}`)
+    console.log(`Pokedex app listening on port: ${port}`)
 });

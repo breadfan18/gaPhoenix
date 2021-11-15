@@ -14,9 +14,9 @@ const pokemons = require('./models/pokemon');
 //              ROUTES
 // =======================================
 // index route
-app.get('/bakedgoods', (req, res) => {
+app.get('/pokemons', (req, res) => {
   res.render('index.ejs', {
-    bakedGoods
+    pokemons
   });
 });
 

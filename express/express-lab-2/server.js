@@ -23,7 +23,9 @@ app.get('/tip/:total/:tipPercentage', (req, res) => {
 
 app.get('/magic/:question', (req, res) => {
     const question = req.params.question;
-    res.send(`Magic 8 ball response: <h1>${eightBall[Math.floor(Math.random()*eightBall.length)]}</h1>`);
+    res.send(`Magic 8 ball response: 
+    
+    <h1>${eightBall[Math.floor(Math.random()*eightBall.length)]}</h1>`);
 })
 
 // Listening

@@ -15,8 +15,12 @@
         <h2 id='header'><%= pokemon.name %> </h2>
         <a href="/pokemons/<%= pokemon.id %> "><img src=" <%= pokemon.img %> " alt="<%= pokemon.name %> "></a>
         <div class="action">
-            <a href="/pokemons/<%= pokemon.id %>/edit">Edit</a>
-            <a href="/pokemons/<%= pokemon.id %>/edit">Delete</a>
+            <form action="/pokemons/<%= pokemon.id %>/edit">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="">
+                <input type="submit" value="Delete">
+            </form>
         </div>
     </div>
     <% }) %>

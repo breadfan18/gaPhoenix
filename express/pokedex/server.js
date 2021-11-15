@@ -55,7 +55,8 @@ app.post('/pokemons', (req, res) => {
     }
 
     console.log(newPoke);
-    // pokemons.push(newPoke);
+    pokemons.push(newPoke);
+    res.redirect('/pokemons');
 })
 
 

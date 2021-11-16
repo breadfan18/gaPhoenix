@@ -79,7 +79,10 @@ app.put('/pokemons/:id', (req, res) => {
 
 // Delete route
 app.delete('/pokemons/:id', (req, res) => {
-    pokemons.splice(req.params.id-1, 1);
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id);
+    const indexOfThisPoke = pokemons.indexOf(thisPokemon);
+
+    pokemons.splice(indexOfThisPoke, 1);
     res.redirect('/pokemons');  
 })
 

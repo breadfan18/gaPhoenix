@@ -21,6 +21,7 @@ h1 {
 #pokemonsContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 img {

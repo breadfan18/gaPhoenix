@@ -58,7 +58,7 @@ app.get('/pokemons/:id', (req, res) => {
 
 // Update route
 app.get('/pokemons/:id/edit', (req, res) => {
-    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id);
     
     res.render('edit.ejs', {
         pokemon: thisPokemon,
@@ -66,11 +66,14 @@ app.get('/pokemons/:id/edit', (req, res) => {
 })
 
 app.put('/pokemons/:id', (req, res) => {
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id);
+    const indexOfThisPoke = pokemons.indexOf(thisPokemon);
+
     let editedPoke = {
         ...req.body,
         id: req.params.id
     }
-    pokemons[parseInt(req.params.id - 1)] = editedPoke;
+    pokemons[indexOfThisPoke] = editedPoke;
     res.redirect(`/pokemons`);
 })
 
@@ -90,4 +93,3 @@ app.listen(port, () => {
 
 // TEST
 
-console.log('Array Console Log: ', pokemons[pokemons.length-1].id)

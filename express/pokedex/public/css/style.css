@@ -1,4 +1,25 @@
-body {
+* {
+    box-sizing: border-box;
+}
+
+body, h1 {
+    margin: 0;
+}
+
+#mainHeader {
+    background-color: aquamarine;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+h1 {
+    padding: 0.5rem 0;
+}
+
+#pokemonsContainer {
     display: flex;
     flex-wrap: wrap;
 }
@@ -16,7 +37,7 @@ img {
     padding: 10px 0;
 }
 
-.pokemonCont {
+.eachPokemon {
     display: flex;
     flex-direction: column;
     justify-content: center;

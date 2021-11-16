@@ -23,6 +23,7 @@ app.use(methodOverride('_method'))
 // =======================================
 //              ROUTES
 // =======================================
+
 // index route
 app.get('/pokemons', (req, res) => {
     console.log(pokemons.length)
@@ -38,12 +39,10 @@ app.get('/pokemons/new', (req, res) => {
 })
 
 app.post('/pokemons', (req, res) => {
-
     const newPoke = {
         ...req.body,
         id: (pokemons.length + 1).toString()
     }
-
     pokemons.push(newPoke);
     res.redirect('/pokemons');
 })
@@ -59,10 +58,10 @@ app.get('/pokemons/:id', (req, res) => {
 
 // Update route
 app.get('/pokemons/:id/edit', (req, res) => {
-    let index = parseInt(req.params.id - 1);
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
+    
     res.render('edit.ejs', {
-        pokemon: pokemons[index],
-
+        pokemon: thisPokemon,
     })
 })
 

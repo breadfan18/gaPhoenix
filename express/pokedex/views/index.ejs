@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Poke Index</title>
-</head>
 
-<body>
-    <% pokemons.forEach(pokemon => { %>
+<% pokemons.forEach(pokemon => { %>
     <div class="pokemonCont">
         <h2 id='header'><%= pokemon.name %> </h2>
         <a href="/pokemons/<%= pokemon.id %> "><img src=" <%= pokemon.img %> " alt="<%= pokemon.name %> "></a>
@@ -24,6 +15,6 @@
         </div>
     </div>
     <% }) %>
-</body>
-
-</html>
+    
+    
+<%- include('./partials/footer') %>

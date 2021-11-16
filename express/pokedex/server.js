@@ -37,16 +37,6 @@ app.get('/pokemons/new', (req, res) => {
     res.render('new.ejs')
 })
 
-// show route
-app.get('/pokemons/:id', (req, res) => {
-    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
-
-    res.render('show.ejs', {
-        thisPokemon
-    });
-});
-
-// post route
 app.post('/pokemons', (req, res) => {
 
     const newPoke = {
@@ -57,6 +47,15 @@ app.post('/pokemons', (req, res) => {
     pokemons.push(newPoke);
     res.redirect('/pokemons');
 })
+
+// show route
+app.get('/pokemons/:id', (req, res) => {
+    const thisPokemon = pokemons.find(pokemon => req.params.id === pokemon.id)
+
+    res.render('show.ejs', {
+        thisPokemon
+    });
+});
 
 // Update route
 app.get('/pokemons/:id/edit', (req, res) => {
@@ -89,3 +88,7 @@ app.delete('/pokemons/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`Pokedex app listening on port: ${port}`)
 });
+
+// TEST
+
+console.log('Array Console Log: ', pokemons[pokemons.length-1].id)

@@ -38,7 +38,9 @@ app.get('/tweets', (req, res) => {
 
 // Show Route
 app.get('/tweets/:id', (req, res) => {
-    
+    Tweet.findById(req.params.id, (err, foundTweet) => {
+        res.send(foundTweet);
+    })
 })
 
 // Tell the app to listen

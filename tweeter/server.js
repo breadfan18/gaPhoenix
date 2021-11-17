@@ -9,10 +9,9 @@ const Tweet = require('./models/tweet');
 const app = express();
 
 // Connect to and config mongodb
-const DATABASE_URL = 'mongodb+srv://admin:abc1234@cluster0.hbi4v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const DATABASE_URL = 'mongodb+srv://admin:abc1234@cluster0.hbi4v.mongodb.net/Tweeter?retryWrites=true&w=majority'
 mongoose.connect(DATABASE_URL);
 
-console.log(db)
 // Sertup listeners for mongodb events
 db.on('connected', () => console.log('Connected to Mongo DB'))
 db.on('error', (error) => console.log('Mongo DB Error: ', error.message))

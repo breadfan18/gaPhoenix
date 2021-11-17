@@ -1,13 +1,12 @@
 // require express and set up the app 
 const express = require('express');
 const app = express();
-let beerCounter = 99;
 
 // Routes 
 app.get('/', (req, res) => {
     res.send(`
         99 Bottlers of beer on the wall
-        <a href="/${--beerCounter}">Take one down, pass it around</a>
+        <a href="/98">Take one down, pass it around</a>
     `)
 })
 
@@ -20,8 +19,8 @@ app.get('/0', (req, res) => {
 
 app.get('/:number_of_bottles', (req, res) => {
     res.send(`
-            ${beerCounter} Bottles of beer on the wall
-            <a href="/${--beerCounter}">Take one down, pass it around</a>
+            ${req.params.number_of_bottles} Bottles of beer on the wall
+            <a href="/${req.params.number_of_bottles - 1}">Take one down, pass it around</a>
         `)
 })
 

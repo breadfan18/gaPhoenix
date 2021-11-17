@@ -1,7 +1,6 @@
 // Require dependencies
 const mongoose = require('mongoose');
 
-
 // Create a mongoose Schema
 const tweetSchema = new mongoose.Schema({
     title: String,
@@ -20,8 +19,9 @@ const tweetSchema = new mongoose.Schema({
 })
 
 // Compile mongoose schema into a mongoose model
-const Tweet = mongoose.model('Tweet', tweetSchema);
+module.exports = mongoose.model('Tweet', tweetSchema);
 
+// Use mongoose model methods to perform CRUD data operaions on a mongodb collection 
 /* 
 The Tweet mongoose object now has access to all the mongoose methods. 
 
@@ -31,7 +31,6 @@ Tweet.findById()
 Tweet.findOne()
 Tweet.findByIdAndUpdate()
 Tweet.findByIdAndDelete()
+
 */
 
-// Use mongoose model methods to perform CRUD data operaions on a mongodb collection 
-module.exports = Tweet;

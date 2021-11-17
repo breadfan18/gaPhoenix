@@ -18,7 +18,7 @@ db.on('error', (error) => console.log('Mongo DB Error: ', error.message))
 
 
 // Mount middleware 
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 
 // Mount routes 
@@ -45,9 +45,20 @@ app.get('/tweets/:id', (req, res) => {
 
 // Delete Route
 app.delete('/tweets/:id', (req, res) => {
-    Tweet.findByIdAndDelete(req.params.id, (err, foundTweet) => {
-        res.redirect('/tweets')
+    Tweet.findByIdAndDelete(req.params.id, (err, copyOfDeletedTweet) => {
+        res.send(copyOfDeletedTweet);
     })
+})
+
+// Update Route
+app.put('/tweets/:id', (req, res) => {
+    Tweet.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true },
+        (err, updatedTweet) => {
+            res.send(updatedTweet)
+        })
 })
 
 // Tell the app to listen

@@ -43,5 +43,12 @@ app.get('/tweets/:id', (req, res) => {
     })
 })
 
+// Delete Route
+app.delete('/tweets/:id', (req, res) => {
+    Tweet.findByIdAndDelete(req.params.id, (err, foundTweet) => {
+        res.redirect('/tweets')
+    })
+})
+
 // Tell the app to listen
 app.listen(PORT, () => console.log('Express is listening on port ' + PORT))

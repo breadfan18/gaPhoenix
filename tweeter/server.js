@@ -29,6 +29,17 @@ app.post('/tweets', (req, res) => {
     })
 });
 
+// Index Route
+app.get('/tweets', (req, res) => {
+    Tweet.find({}, (err, tweets) => {
+        res.send(tweets);
+    })
+})
+
+// Show Route
+app.get('/tweets/:id', (req, res) => {
+    
+})
 
 // Tell the app to listen
 app.listen(PORT, () => console.log('Express is listening on port ' + PORT))

@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Book = require('./models/book')
-
+const Book = require('./models/book');
 
 // initialize app
 const app = express();
@@ -36,6 +35,12 @@ app.post("/books", (req, res) => {
 
     Book.create(req.body, (error, createdBook) => {
         res.send(createdBook)
+    })
+})
+
+app.get('/books', (req, res) => {
+    Book.find({}, (err, books) => {
+        res.send(books)
     })
 })
 

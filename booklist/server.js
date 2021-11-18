@@ -24,7 +24,9 @@ app.use(express.urlencoded({extended: true}));
 
 
 // Mount Routes
-
+app.get('/books', (req,res) => {
+    res.send(req.body);
+})
 
 
 // Tell the app to listen

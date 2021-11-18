@@ -21,7 +21,7 @@ db.on('error', (err) => console.log('Mongo error: ' + err.message));
 
 // Mount middleware
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static('public'));
 
 // Mount Routes
 
@@ -30,6 +30,7 @@ app.get('/books/new', (req,res) => {
     res.render('new.ejs')
 })
 
+// Create Route
 app.post("/books", (req, res) => {
     if (req.body.completed === "on") {
         //if checked, req.body.completed is set to 'on'
@@ -40,16 +41,23 @@ app.post("/books", (req, res) => {
     }
 
     Book.create(req.body, (error, createdBook) => {
-        res.send(createdBook)
+        res.redirect('/books')
     })
+
 })
 
+// Index Route
 app.get('/books', (req, res) => {
     Book.find({}, (err, books) => {
-        res.send(books)
+        res.render('index.ejs', {books})
     })
 })
 
+app.get('/books/:id', (req, res) => {
+    Book.findById(req.params.id, (err, foundBook) => {
+        res.render('show.ejs', {foundBook})
+    })
+})
 
 // Tell the app to listen
 const PORT = process.env.PORT

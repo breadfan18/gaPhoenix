@@ -1,0 +1,12 @@
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form:last-child {
+    grid-column: span 2;
+}
+
+body {
+    background-color: beige;
+}

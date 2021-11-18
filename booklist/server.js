@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Book = require('./models/book')
 
 
 // initialize app
@@ -20,12 +21,22 @@ db.on('error', (err) => console.log('Mongo error: ' + err.message));
 
 
 // Mount middleware
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 
 // Mount Routes
-app.get('/books', (req,res) => {
-    res.send(req.body);
+app.post("/books", (req, res) => {
+    if (req.body.completed === "on") {
+        //if checked, req.body.completed is set to 'on'
+        req.body.completed = true
+    } else {
+        //if not checked, req.body.completed is undefined
+        req.body.completed = false
+    }
+
+    Book.create(req.body, (error, createdBook) => {
+        res.send(createdBook)
+    })
 })
 
 

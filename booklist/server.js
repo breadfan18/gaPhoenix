@@ -24,6 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Mount Routes
+
+// New Route
+app.get('/books/new', (req,res) => {
+    res.render('new.ejs')
+})
+
 app.post("/books", (req, res) => {
     if (req.body.completed === "on") {
         //if checked, req.body.completed is set to 'on'

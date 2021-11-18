@@ -6,6 +6,6 @@
 <h1><%=foundBook.title %></h1>
 Author: <%= foundBook.author%>
 <br />
-<p><%= foundBook.completed ? 'Completed' : 'Not Completed' %></p>
+<p><%= foundBook.completed ? 'You have finished this book' : 'You have not finished this book' %></p>
 
 <%- include('./partials/footer') %>

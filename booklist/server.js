@@ -25,6 +25,35 @@ app.use(express.static('public'));
 
 // Mount Routes
 
+// Seed route
+app.get('/books/seed', async (req, res) => {
+    const data = [
+        {
+            title: 'Cristiano, why did i come back, Ronaldo',
+            author: 'Ruben Mendes'
+        },
+        {
+            title: 'Robin - Oh Van, where are you?',
+            author: 'David Moyes'
+        },
+        {
+            title: 'David Beckham - a lost handsome boy',
+            author: 'Ole Goner'
+        },
+        {
+            title: 'Wayne Rooney - Gone and Forgotten',
+            author: 'Louie Van Dhaal'
+        },
+        {
+            title: 'David De Gea - Life in the dumps',
+            author: 'Jose'
+        },
+    ]
+    await Book.deleteMany({}) //deleted everything in the database
+    await Book.create(data); //created new data from the seed data above. 
+    res.redirect('/books')
+})
+
 // New Route
 app.get('/books/new', (req,res) => {
     res.render('new.ejs')

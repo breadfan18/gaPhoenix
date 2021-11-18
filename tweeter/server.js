@@ -53,12 +53,11 @@ app.delete('/tweets/:id', (req, res) => {
 // Update Route
 app.put('/tweets/:id', (req, res) => {
     Tweet.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true },
-        (err, updatedTweet) => {
-            res.send(updatedTweet)
-        })
+            req.params.id,
+            req.body,
+            { new: true },
+            (err, updatedTweet) => {res.send(updatedTweet)}
+        )
 })
 
 // Tell the app to listen

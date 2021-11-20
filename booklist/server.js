@@ -58,7 +58,7 @@ app.get('/books/seed', async (req, res) => {
 })
 
 // New Route
-app.get('/books/new', (req,res) => {
+app.get('/books/new', (req, res) => {
     res.render('new.ejs')
 })
 
@@ -81,21 +81,22 @@ app.post("/books", (req, res) => {
 // Index Route
 app.get('/books', (req, res) => {
     Book.find({}, (err, books) => {
-        res.render('index.ejs', {books})
+        res.render('index.ejs', { books })
     })
 })
 
 app.get('/books/:id', (req, res) => {
     Book.findById(req.params.id, (err, foundBook) => {
-        res.render('show.ejs', {foundBook})
+        res.render('show.ejs', { foundBook })
     })
 })
 
 // Delete route
-app.delete('/books/:id', (req, res) => {
-    Book.findByIdAndDelete()
+app.delete("/books/:id", (req, res) => {
+    Book.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect("/books")
+    })
 })
-
 // Tell the app to listen
 const PORT = process.env.PORT
 

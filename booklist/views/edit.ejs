@@ -2,9 +2,9 @@
 
 <h1>Edit Book Page</h1>
 <form action="/books/<%= book._id %>?_method=PUT" method="POST">
-    Title: <input type="text" name="title">
-    Author: <input type="text" name="author">
-    Completed: <input type="checkbox" name="completed">
+    Title: <input type="text" name="title" value="<%= book.title %> ">
+    Author: <input type="text" name="author" value="<%= book.author %>">
+    Completed: <input type="checkbox" name="completed" <%= book.completed ? 'checked' : null %> >
     <input type="submit" value="Submit">
 </form>
 

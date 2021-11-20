@@ -92,6 +92,19 @@ app.get('/books/:id/edit', (req, res) => {
     })
 })
 
+// Update route
+app.put('/books/:id', (req, res) => {
+    req.body.completed = !!req.body.completed //!!'on' === true  || !!undefined === false
+    Book.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        { new: true } /*  <-- this is an options object. */ , 
+        (err, updatedBook) => {
+            res.redirect(`/books/`)
+    })
+    
+
+})
 
 // Show route
 app.get('/books/:id', (req, res) => {

@@ -85,6 +85,15 @@ app.get('/books', (req, res) => {
     })
 })
 
+// Edit route
+app.get('/books/:id/edit', (req, res) => {
+    Book.findById(req.params.id, (err, book) => {
+        res.render('edit.ejs', {book})
+    })
+})
+
+
+// Show route
 app.get('/books/:id', (req, res) => {
     Book.findById(req.params.id, (err, foundBook) => {
         res.render('show.ejs', { foundBook })

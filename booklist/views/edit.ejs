@@ -1,0 +1,11 @@
+<%- include('./partials/header') %>
+
+<h1>Edit Book Page</h1>
+<form action="/books/<%= book._id %>?_method=PUT" method="POST">
+    Title: <input type="text" name="title">
+    Author: <input type="text" name="author">
+    Completed: <input type="checkbox" name="completed">
+    <input type="submit" value="Submit">
+</form>
+
+<%- include('./partials/footer') %>

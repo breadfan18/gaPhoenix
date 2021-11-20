@@ -1,21 +1,8 @@
-/* form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
-/* form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
-
-form:last-child {
-    grid-column: span 2;
-}
-
 body {
     background-color: beige;
 }
 
 .indexForm {
     display: flex;
-    /* flex-direction: column; */
+    color: red;
 }

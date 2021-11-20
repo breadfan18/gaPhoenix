@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Book = require('./models/book');
+const methodOverride = require("method-override")
 
 // initialize app
 const app = express();
@@ -22,6 +23,8 @@ db.on('error', (err) => console.log('Mongo error: ' + err.message));
 // Mount middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
+
 
 // Mount Routes
 
@@ -86,6 +89,11 @@ app.get('/books/:id', (req, res) => {
     Book.findById(req.params.id, (err, foundBook) => {
         res.render('show.ejs', {foundBook})
     })
+})
+
+// Delete route
+app.delete('/books/:id', (req, res) => {
+    Book.findByIdAndDelete()
 })
 
 // Tell the app to listen

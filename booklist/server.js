@@ -102,8 +102,6 @@ app.put('/books/:id', (req, res) => {
         (err, updatedBook) => {
             res.redirect(`/books/`)
     })
-    
-
 })
 
 // Show route

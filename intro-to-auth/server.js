@@ -33,5 +33,3 @@ app.use('/', usersController);
 
 // Tell the app to listen
 app.listen(PORT, () => console.log('App is listening on Port ' + PORT))
-
-// Just a comment

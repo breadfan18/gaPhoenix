@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Book = require('./models/book');
 const methodOverride = require("method-override")
+const booksController = require('./controllers/books');
 
 // initialize app
 const app = express();
@@ -24,6 +24,7 @@ db.on('error', (err) => console.log('Mongo error: ' + err.message));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use('/', booksController)
 
 
 // Mount Routes

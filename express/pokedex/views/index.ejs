@@ -6,7 +6,9 @@
 
     <div class="eachPokemon">
         <h4 id='header'><%= pokemon.name %> </h4>
-        <a href="/pokemons/<%= pokemon.id %> "><img src=" <%= pokemon.img %> " alt="<%= pokemon.name %> "></a>
+        <a href="/pokemons/<%= pokemon.id %> ">
+            <img src="<%= pokemon[i].img %> " alt="<%= pokemon[i].name %> ">
+        </a>
         <div class="action">
             <form action="/pokemons/<%= pokemon.id %>/edit">
                 <input type="submit" value="Edit">

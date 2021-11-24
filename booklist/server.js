@@ -12,7 +12,6 @@ require('dotenv').config();
 
 // Connect to and configure mongoDB with mongoose
 mongoose.connect(process.env.DATABASE_URL);
-mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
 // setup mongodb event listeners

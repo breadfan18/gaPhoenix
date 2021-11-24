@@ -1,22 +1,35 @@
 const express = require('express');
-const morgan = require('morgan');
-const app = express();
-const port = process.env.PORT;
 const mongoose = require('mongoose');
+const methodOverride = require("method-override");
+const morgan = require('morgan');
+const usersController = require('./controllers/index');
 
-// Middleware
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false}));
+// initialize app
+const app = express();
+
+// Configure settings
 require('dotenv').config();
+const { DATABASE_URL, PORT } = process.env;
 
-// Connect to mongoose
-mongoose.connect(process.env.DATABASE_URL);
+
+// Connect to and configure mongoDB with mongoose
+mongoose.connect(DATABASE_URL);
 const db = mongoose.connection;
 
-// Mongodb event listeners
-db.on('connected', () => console.log('Connected to Mongo DB'))
-db.on('error', (err) => console.log('Mongo Error' + err))
+// setup mongodb event listeners
+db.on('connected', () => console.log('Connected to MongoDB'));
+db.on('error', (err) => console.log('Mongo error: ' + err.message));
 
 
-// Listener
-app.listen(port, () => console.log('Listening'));
+// Mount middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(express.static('public'));
+app.use(methodOverride('_method'));
+app.use('/', usersController);
+
+
+// Mount Routes
+
+// Tell the app to listen
+app.listen(PORT, () => console.log('App is listening on Port ' + PORT))

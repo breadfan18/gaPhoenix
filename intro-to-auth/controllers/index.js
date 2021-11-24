@@ -8,3 +8,5 @@ usersRouter.get('/users', (req, res) => {
         res.render('home.ejs');
     })
 })
+
+module.exports = usersRouter;

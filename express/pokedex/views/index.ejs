@@ -7,7 +7,7 @@
     <div class="eachPokemon">
         <h4 id='header'><%= pokemon.name %> </h4>
         <a href="/pokemons/<%= pokemon.id %> ">
-            <img src="<%= pokemon[i].img %> " alt="<%= pokemon[i].name %> ">
+            <img src="<%= pokemon.img %> " alt="<%= pokemon.name %> ">
         </a>
         <div class="action">
             <form action="/pokemons/<%= pokemon.id %>/edit">
@@ -16,6 +16,7 @@
             <form action="/pokemons/<%= pokemon.id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete">
             </form>
+            <input type='submit' <%= product.qty > 0 ? 'disabled' : null %> value="Buy One">
         </div>
     </div>
     <% }) %>

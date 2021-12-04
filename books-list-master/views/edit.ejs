@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= book.title %></title>
+</head>
+<body>
+    <h1>Edit <%= book.title %></h1>
+    <form action="/books/<%= book._id %>?_method=PUT" method="POST">
+        <!-- Image: <input type="text" name="imageURL"> -->
+        Title: <input type="text" name="title" value="<%= book.title %>" required><br>
+        Author: <input type="text" name="author" value="<%= book.author %>" required><br>
+        Completed <input type="checkbox" name="completed" <%- book.completed && 'checked' %>><br>
+        Excerpt: <textarea name="excerpt" cols="30" rows="10"><%= book.excerpt %></textarea>
+        <input type="submit" value="Edit Book">
+    </form>
+</body>
+</html>

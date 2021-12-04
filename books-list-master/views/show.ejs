@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See <%= book.title %> Details</title>
+</head>
+<body>
+    <h1>See <%= book.title %> Details</h1>
+    <nav>
+        <a href="/books">See All Books</a>
+        <a href="/books/new">Create A New Book</a>
+    </nav>
+    <img style="height: 300px;" src="<%= book.coverImageURL %>" alt="<%= book.title %>">
+    <h3>Author: <%= book.author %></h3>
+    <% if(book.completed) { %>
+        <p>You have finished this book</p>
+    <% } else { %>
+        <p>You have not finished this book</p>
+    <% } %>
+    <p><%= book.excerpt %></p>
+</body>
+</html>

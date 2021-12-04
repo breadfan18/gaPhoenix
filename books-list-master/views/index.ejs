@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/js/script.js"></script>
+    <title>Here's your Book List</title>
+</head>
+<body>
+    <h1>Here's your Book List</h1>
+    <nav>
+        <a href="/books/new">Add A New Book</a>
+        <a href="/books/search">Search For A Book</a>
+    </nav>
+    <ul style="list-style: lower-roman; text-transform: capitalize;">
+        <% books.forEach(b => { %>
+            <li style="margin-bottom: 1rem;">
+                <!-- <form method="POST" action="/books/<%= b._id %>?_method=DELETE" style="display: inline; margin-right: 1rem;">
+                    <input type="submit" value="DELETE">
+                </form> -->
+                <!-- Send a delete request using ajax -->
+                <button style="display: inline; margin-right: 1rem;" data-id="<%= b._id %>">DELETE</button>
+                <a style="margin: 0 1rem;" href="/books/<%= b._id%>/edit">EDIT</a>
+                <a href="/books/<%= b._id %>">
+                    <%= b.title %>
+                </a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

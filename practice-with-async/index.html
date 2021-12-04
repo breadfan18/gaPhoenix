@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice with Async Code</title>
+</head>
+<body>
+    <h1>Practice with Async Code</h1>
+    <script>
+        // 
+
+        fetch('https://pokeapi.co/api/v2/pokemon/ditto').then(response => response.json()).then(data => console.log(data))
+
+        // Javascript Promise
+        // It's an object with two methods that allow us to do one of two things
+        //  1. Resolve a long running task -> getting data from a database or an API (has a database)
+        //  2. Reject the task due to en error and send us an error message. 
+        
+    </script>
+</body>
+</html>

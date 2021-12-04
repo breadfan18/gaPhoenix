@@ -101,10 +101,9 @@ app.post('/books', (req, res) => {
 });
 
 // Edit Route
-app.get('/books/:id/edit', (req, res) => {
-    Book.findById(req.params.id, (err, book) => {
-        res.render('edit.ejs', { book });
-    });
+app.get('/books/:id/edit', async (req, res) => {
+    const book = await Book.findById(req.params.id); 
+    res.render('edit.ejs', { book });
 });
 
 // Search Routes/Controllers

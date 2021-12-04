@@ -15,7 +15,6 @@ booksRouter.get('/search', async (req, res) => {
     console.log(term)
     if(term){
         const results = await Book.find({ title: { $regex: term }})
-        console.log(results)
         res.json({ results });
     }else {
         res.render('search.ejs')

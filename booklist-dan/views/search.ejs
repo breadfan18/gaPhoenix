@@ -32,21 +32,16 @@
         // Handler functions
         async function handleClick() {
             const searchTerm = inputElement.value;
-
             const response = await fetch('/books/search?term=' + searchTerm);
-            console.log(response)
             const data = await response.json();
             console.log(data)
 
             const list = data.results.map(book => {
-                return 
-                    `
-                        <li>
-                            <a href="/books/${book._id}">
-                                ${book.title}    
-                            </a>
-                        </li>
-                    `
+                return `
+                <li>
+                    <a href="${book._id}">${book.title}</a>
+                </li>
+                `
             }).join('')
 
             ulElement.innerHTML = list;

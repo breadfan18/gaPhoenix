@@ -12,8 +12,10 @@ const Book = require('../models/book');
 
 booksRouter.get('/search', async (req, res) => {
     const term = req.query.term;
+    console.log(term)
     if(term){
         const results = await Book.find({ title: { $regex: term }})
+        console.log(results)
         res.json({ results });
     }else {
         res.render('search.ejs')

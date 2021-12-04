@@ -12,7 +12,7 @@ const app = express();
 
 // Configure App Settings
 require('dotenv').config();
-const { DATABASE_URL, PORT, API_KEY, API_SECRET, CLOUD_NAME } = process.env;
+const {API_KEY, API_SECRET, CLOUD_NAME } = process.env;
 console.log(process.env)
 // Configure Cloudinary
 
@@ -23,7 +23,7 @@ cloudinary.config({
 });
 
 // Connect to MongoDB
-mongoose.connect(DATABASE_URL);
+mongoose.connect('mongodb+srv://admin:abc1234@cluster0.hbi4v.mongodb.net/BookList?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 
@@ -102,8 +102,12 @@ app.post('/books', (req, res) => {
 
 // Edit Route
 app.get('/books/:id/edit', async (req, res) => {
-    const book = await Book.findById(req.params.id); 
-    res.render('edit.ejs', { book });
+    try {
+        const book = await Book.findById(req.params.idp); 
+        res.render('edit.ejs', { book });
+    } catch (err) {
+        res.render('error.ejs');
+    }
 });
 
 // Search Routes/Controllers
@@ -131,13 +135,8 @@ app.get('/books/:id', async (req, res) => {
     }
 });
 
-
-
-
-
-
 // Tell the App to listen for requests
 
-app.listen(PORT, () => { 
-    console.log(`Express is listening on port:${PORT}`);
+app.listen(3000, () => { 
+    console.log(`Express is listening on port: 3000`);
 });

@@ -10,6 +10,16 @@ const Book = require('../models/book');
 
 // We are already at /books/
 
+booksRouter.get('/search', async (req, res) => {
+    const term = req.query.term;
+    if(term){
+        const results = await Book.find({ title: { $regex: term }})
+        res.json({ results });
+    }else {
+        res.render('search.ejs')
+    }
+})
+
 booksRouter.get('/seed', async (req, res) => {
     const data = [
         {

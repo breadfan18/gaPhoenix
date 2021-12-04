@@ -12,8 +12,7 @@ const app = express();
 
 // Configure App Settings
 require('dotenv').config();
-const {API_KEY, API_SECRET, CLOUD_NAME } = process.env;
-console.log(process.env)
+const {PORT, DATABASE_URL, API_KEY, API_SECRET, CLOUD_NAME } = process.env;
 // Configure Cloudinary
 
 cloudinary.config({ 
@@ -23,7 +22,7 @@ cloudinary.config({
 });
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://admin:abc1234@cluster0.hbi4v.mongodb.net/BookList?retryWrites=true&w=majority');
+mongoose.connect(DATABASE_URL);
 
 const db = mongoose.connection;
 
@@ -103,7 +102,7 @@ app.post('/books', (req, res) => {
 // Edit Route
 app.get('/books/:id/edit', async (req, res) => {
     try {
-        const book = await Book.findById(req.params.idp); 
+        const book = await Book.findById(req.params.id); 
         res.render('edit.ejs', { book });
     } catch (err) {
         res.render('error.ejs');
@@ -135,8 +134,18 @@ app.get('/books/:id', async (req, res) => {
     }
 });
 
+app.get('/books/search', async (req, res) => {
+    const term = req.query.term;
+    if(term){
+        const results = await Book.find({ title: { $regex: term }})
+        res.json({ results });
+    }else {
+        res.render('search.ejs')
+    }
+})
+
 // Tell the App to listen for requests
 
-app.listen(3000, () => { 
-    console.log(`Express is listening on port: 3000`);
+app.listen(PORT, () => { 
+    console.log(`Express is listening on port: ${PORT}`);
 });

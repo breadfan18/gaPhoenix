@@ -15,12 +15,14 @@
     </nav>
     <input type="text">
     <button>Search</button>
+    <ul></ul>
 
 
     <script>
         // Elements
         const buttonElement = document.querySelector('button');
         const inputElement = document.querySelector('input');
+        const ulElement = document.querySelector('ul');
         
         // Event Listener
         buttonElement.addEventListener('click', handleClick)
@@ -34,6 +36,10 @@
             const data = await response.json();
             console.log(data)
         }
+
+        data.map(book => {
+            return `<li>${book.title}</li>`
+        }).join('')
 
     </script>
 </body>

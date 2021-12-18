@@ -27,10 +27,6 @@
   justify-content: center;
 }
 
-.board div:nth-child(2){
-  border: none;
-} 
-
 
 .Footer {
   display: flex;
@@ -38,3 +34,4 @@
   justify-content: center;
   align-items: center;
 }
+

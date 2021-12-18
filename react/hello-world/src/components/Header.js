@@ -4,4 +4,3 @@ const Header = () => {
 
 export default Header;
 
-// Test comment

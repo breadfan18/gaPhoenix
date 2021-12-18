@@ -1,49 +1,35 @@
+.Header {
+  display: flex;
+  font-family: monospace;
+  height: 5rem;
+  padding-left: 1rem;
+}
+
 .container > div {
   display: flex;
-  background: var(--yankees-blue);
-  flex-wrap: wrap;
-  justify-content: space-around;
-  min-height: 60vh;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .board {
-  flex-basis: 60%;
-  display: grid;
-  grid-template-columns: 15vw 15vw 15vw;
-  grid-template-rows: 15vw 15vw 15vw;
-  color: white;
-  justify-items: stretch;
-  justify-content: center;
+  margin: 4rem auto;
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
 }
 
 .board div {
+  border: 3px solid var(--react);
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
-  border: 3px solid var(--react);
+  justify-content: center;
 }
 
-h4 {
-  text-align: center;
-  flex-basis: 100%;
-  align-self: center;
-}
-
-.X,
-.O {
-  flex-basis: 45%;
-  text-align: center;
-}
-
-.X {
-  color: var(--sea-serpent);
-}
-
-.O {
-  color: var(--aquamarine);
-}
-h1 {
-  flex-basis: 60%;
-  color: var(--react);
-  text-align: center;
+.Footer {
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
 }

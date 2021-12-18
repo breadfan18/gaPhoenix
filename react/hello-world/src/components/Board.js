@@ -1,6 +1,6 @@
 import Square from './Square';
 
-const Board = (props) => {
+function Board(props) {
     return (
         <div className="board">
             <Square />
@@ -13,7 +13,7 @@ const Board = (props) => {
             <Square />
             <Square />
         </div>
-    )
+    );
 }
 
 export default Board;

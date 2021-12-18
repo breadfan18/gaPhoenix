@@ -1,9 +1,9 @@
-const Square = () => {
+function Square(props) {
     return (
         <div>
-            <h4>square</h4>
+            <h4>Square</h4>
         </div>
-    )
+    );
 }
 
 export default Square;

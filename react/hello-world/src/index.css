@@ -7,8 +7,12 @@
   --react: #00d8ff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background-color: var(--yankees-blue);
+  background: var(--yankees-blue);
 }
 
 body {
@@ -16,3 +20,4 @@ body {
   font-family: Helvetica, sans-serif;
   color: #fff;
 }
+

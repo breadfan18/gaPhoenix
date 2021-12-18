@@ -1,26 +1,26 @@
 const data = [
     {
-        img: "https://images.unsplash.com/photo-1536514072410-5019a3c69182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        img: "http://res.cloudinary.com/jkeohan/image/upload/v1535732381/day.svg",
         conditions: 'sunny',
         time: 'day'
     },
     {
-        img: "https://images.unsplash.com/photo-1536514072410-5019a3c69182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        img: "http://res.cloudinary.com/jkeohan/image/upload/v1535732381/night.svg",
         conditions: 'clear',
         time: 'day'
     },
     {
-        img: "https://images.unsplash.com/photo-1536514072410-5019a3c69182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        img: "http://res.cloudinary.com/jkeohan/image/upload/v1535732381/stormy.svg",
         conditions: 'cloudy',
         time: 'day'
     },
     {
-        img: "https://images.unsplash.com/photo-1536514072410-5019a3c69182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        img: "http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-day_t7ckxp.svg",
         conditions: 'partly sunny',
         time: 'night'
     },
     {
-        img: "https://images.unsplash.com/photo-1536514072410-5019a3c69182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        img: "http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-night.svg",
         conditions: 'rainy',
         time: 'day'
     } 

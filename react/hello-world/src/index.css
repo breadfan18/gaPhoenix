@@ -6,3 +6,13 @@
   --aquamarine: #6fffe9;
   --react: #00d8ff;
 }
+
+html {
+  background-color: var(--yankees-blue);
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  color: #fff;
+}

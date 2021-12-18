@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Player from './components/Player';
 import Board from './components/Board';
+import Square from './components/Square';
 
 // Components return a part or all of the UI
 // A component receives data as input and renders that data as a user interface
@@ -14,7 +15,7 @@ function App() {
       <Header />
       <Player whichPlayer='X'/>
       <Player whichPlayer='O'/>
-      <Board />
+      <Board /> 
       <Footer />
     </>
   );

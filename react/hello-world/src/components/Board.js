@@ -1,7 +1,17 @@
-const Board = () => {
+import Square from './Square';
+
+const Board = (props) => {
     return (
-        <div>
-            The Board
+        <div className="board">
+            <Square />
+            <Square />
+            <Square />
+            <Square />
+            <Square />
+            <Square />
+            <Square />
+            <Square />
+            <Square />
         </div>
     )
 }

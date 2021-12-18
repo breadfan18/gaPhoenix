@@ -3,7 +3,3 @@ const Header = () => {
 }
 
 export default Header;
-
-/* 
-use export default whenever there's one piece of functionality being exported from a component module
-*/

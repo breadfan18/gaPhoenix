@@ -29,10 +29,7 @@ export default function App() {
   console.log(images);
 
   return (
-    <div className="App" style={{
-      backgroundImage: `url(${bigImage})`,
-      backgroundSize: 'stretch',
-    }}>
+    <div className="App">
       <h1>Cities Of The World</h1>
       <div id="wrapper">
 

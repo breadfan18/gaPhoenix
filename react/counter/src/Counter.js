@@ -1,10 +1,10 @@
-const Counter = () => {
+const Counter = ({ count, increaseCounter, decreaseCounter }) => {
     return (
         <>
-            <span>Current Count: 0</span>
+            <span>Current Count: { count }</span>
             <section>
-                <button>+</button>
-                <button>-</button>
+                <button onClick={increaseCounter}>+</button>
+                <button onClick={decreaseCounter}>-</button>
             </section>
         </>
     )

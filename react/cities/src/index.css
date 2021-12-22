@@ -1,6 +1,7 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+    background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60')
   }
   
   body {
@@ -29,7 +30,6 @@
     display: block;
     display:flex;
     flex-wrap:wrap;
-  
   }
   
   #bigimage {

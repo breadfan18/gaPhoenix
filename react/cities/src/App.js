@@ -17,19 +17,22 @@ export default function App() {
   // ASSIGN ALL OF THE PROPERTIES THAT IT NEEDS: src, alt, className, key INCLUDING AN onClick EVENT THAT CALLS THE HANDLE EVENT FUNCTION AND PASSES IT THE IMG URL
 
   const images = imagesArr.map((image, index) => {
-    return <img 
-        className="thumb" 
-        key={index} 
-        src={image.img} 
-        alt={image.city} 
-        onClick={() => handleImg(image.img)}
-        />
+    return <img
+      className="thumb"
+      key={index}
+      src={image.img}
+      alt={image.city}
+      onClick={() => handleImg(image.img)}
+    />
   })
 
   console.log(images);
 
   return (
-    <div className="App">
+    <div className="App" style={{
+      backgroundImage: `url(${bigImage})`,
+      backgroundSize: 'cover',
+    }}>
       <h1>Cities Of The World</h1>
       <div id="wrapper">
 

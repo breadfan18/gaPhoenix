@@ -34,7 +34,6 @@ export default function App() {
       <div id="wrapper">
 
         <div id="thumbnails">{images}</div>
-
         <img id="bigimage"
           src={bigImage}
           alt="bigimage" />

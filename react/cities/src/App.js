@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div className="App" style={{
       backgroundImage: `url(${bigImage})`,
-      backgroundSize: 'cover',
+      backgroundSize: 'stretch',
     }}>
       <h1>Cities Of The World</h1>
       <div id="wrapper">

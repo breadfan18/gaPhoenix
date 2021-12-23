@@ -1,5 +1,5 @@
 // IMPORT useState
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "./components/Form";
 import MovieDisplay from "./components/MovieDisplay";
 import "./index.css";
@@ -13,6 +13,10 @@ export default function App() {
     const data = await response.json();
     setMovie(data)
   }
+
+  useEffect(() => {
+    getMovie('fast')
+  }, [])
 
   return (
     <div className="App">

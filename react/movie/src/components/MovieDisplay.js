@@ -1,9 +1,10 @@
 const MovieDisplay = (props) => {
 
-  console.log(props.movie)
+  console.log('tutu tara', props.movie);
     return (
       <>
-        <h1>The MovieDisplay Component</h1>
+        <h1>{props.movie.Title}</h1>
+        <img src={props.movie.Poster} alt="" />
       </>
     )
     

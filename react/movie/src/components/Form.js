@@ -6,22 +6,21 @@ const Form = (props) => {
         searchTerm: ''
     })
 
-    const handleChange = (event) => {
-        console.log(event.target.value)
-
-        setFormState({ searchTerm: event.target.value })
+    const handleChange = (e) => {
+        setFormState({ searchTerm: e.target.value })
     }
 
-    const handleClick = () => {
-        console.log(formState.searchTerm)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.getMovie(formState.searchTerm)
     }
 
     return (
         <div>
             <h1>The movie API Form</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type="text" value={formState.searchTerm} onChange={handleChange}/>
-                <input type="submit" value="submit" onClick={handleClick}/>
+                <input type="submit" value="submit"/>
             </form>
             <hr />
         </div>

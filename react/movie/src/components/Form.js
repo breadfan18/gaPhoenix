@@ -17,7 +17,7 @@ const Form = (props) => {
 
     return (
         <div>
-            <h1>The movie API Form</h1>
+            <h1>Enter a Movie</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={formState.searchTerm} onChange={handleChange}/>
                 <input type="submit" value="submit"/>

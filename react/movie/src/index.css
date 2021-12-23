@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Open+Sans:wght@300&display=swap');
+
+* {
+    padding: 0;
+}
+ 
+body {
+    font-family: 'Imperial Script', cursive;
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+hr {
+    opacity: 30%;
+}

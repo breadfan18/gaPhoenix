@@ -1,7 +1,12 @@
 const MovieDisplay = (props) => {
 
   console.log(props.movie)
-    return <h1>The MovieDisplay Component</h1>;
+    return (
+      <>
+        <h1>The MovieDisplay Component</h1>
+      </>
+    )
+    
   };
   
   

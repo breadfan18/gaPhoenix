@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Giphy</h1>
+      <h1>React Giphy</h1>
       <hr />
       <Form getGif={getGif}/>
       <GifDisplay gif={gif}/>

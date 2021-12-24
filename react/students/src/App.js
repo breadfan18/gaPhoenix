@@ -1,16 +1,24 @@
 // IMPORT useState
 import React, { useState } from "react";
-import { students as allStudents } from "./students";
+import { students } from "./students";
 import "./index.css";
+import Student from "./Student";
+
 
 export default function App() {
   
-  const [ students, setStudent ] = useState(allStudents)
+  const [ allStudents, setAllStudenta ] = useState(students);
 
-  console.log(students);
+  const studentComponents = allStudents.map((student, index) => {
+    return <Student 
+      key={index}
+      student={student}
+    />
+  })  
   return (
     <div className="App">
-      <h1>Template</h1>
+      <h1>React Students</h1>
+      <div>{studentComponents}</div>
     </div>
   );
 }

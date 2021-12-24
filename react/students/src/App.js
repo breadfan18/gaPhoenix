@@ -1,9 +1,7 @@
 // IMPORT useState
 import React, { useState } from "react";
-import { students } from "./students";
+import { students as allStudents } from "./students";
 import "./index.css";
-
-const allStudents = students;
 
 export default function App() {
   

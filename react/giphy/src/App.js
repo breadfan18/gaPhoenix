@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import Form from './components/Form';
 import GifDisplay from "./components/GifDisplay";
 import "./index.css";
+import movieNames from 'movies-names';
 
 export default function App() {
+  console.log(movieNames.random())
   const API_KEY = 'cYY2RGnMz0QbUuZwah7huztQSLrRZ2mE';
   const [ gif, setGif ] = useState('');
 
@@ -13,6 +15,8 @@ export default function App() {
     const data = await response.json()
     setGif(data.data.images.original.url)
   }
+
+  useEffect(() => getGif(), [])
 
   return (
     <div className="App">

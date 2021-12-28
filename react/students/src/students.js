@@ -34,7 +34,7 @@ export const students = [
       {
         date: "2019-02-23",
         score: 91,
-      },
+      }
     ],
   },
   {

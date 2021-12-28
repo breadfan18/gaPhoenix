@@ -4,7 +4,7 @@ import { students } from "./students";
 import "./index.css";
 import Student from "./Student";
 import Score from "./Score";
-
+import "./App.css";
 
 export default function App() {
 

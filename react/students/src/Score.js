@@ -9,16 +9,17 @@ const Score = ({ scores }) => {
     )
     return (
         <div className="tableDiv">
-            <table className="table">
-                <tbody>
+            <table className="table thead-dark">
+                <thead className="table-dark">
                     <tr>
                         <th>Date</th>
                         <th>Score</th>
                     </tr>
+                </thead>
+                <tbody>
                     {scoreElements}
                 </tbody>
             </table>
-
         </div>
     )
 }

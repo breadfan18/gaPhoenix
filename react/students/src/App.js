@@ -20,6 +20,7 @@ export default function App() {
         key={'score' + index}
         scores={student.scores}
       />
+      <hr />
     </>)
   )
   return (

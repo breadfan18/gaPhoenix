@@ -26,3 +26,25 @@
 img {
   height: 10rem;
 }
+
+.card {
+  width: 18rem;
+}
+
+.card-text {
+  height: 10rem;
+}
+
+@media (max-width: 700px){
+  .card {
+    width: 30rem;
+  }
+
+  img {
+    height: 15rem;
+  }
+
+  .card-text {
+    height: 7rem;
+  }
+}

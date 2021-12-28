@@ -2,11 +2,11 @@ import Score from "./Score";
 
 const Student = ({ student, key }) => {
     return (
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card">
             <img src={student.img} className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{student.name}</h5>
-                <p className="card-text" style={{ height: "10rem" }}>{student.bio}</p>
+                <p className="card-text">{student.bio}</p>
             </div>
             <Score
                 key={'score' + key}

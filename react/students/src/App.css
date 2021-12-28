@@ -35,19 +35,34 @@ img {
   height: 10rem;
 }
 
-#myHeader {
+.header {
   color: white;
-  background-color: black;
+  background: transparent;
   z-index: 1;
   padding: 0.4rem;
 }
 
-.sticky {
+.header.active {
+  background: black;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
+#myHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.burgerMenu {
+  display: none;
+}
+
+.burgerMenu > img {
+  height: 3rem;
+
+}
 
 @media (max-width: 700px){
   .card {
@@ -60,5 +75,15 @@ img {
 
   .card-text {
     height: 7rem;
+  }
+
+  .nonBurgerMenu {
+    display: none;
+  }
+
+  .burgerMenu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 }

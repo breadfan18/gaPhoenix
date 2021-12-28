@@ -7,22 +7,26 @@ import "./App.css";
 
 export default function App() {
   const [allStudents, setAllStudents] = useState(students);
+  const [header, setHeader] = useState(false);
 
   const studentComponents = allStudents.map((student, index) => <Student key={index} student={student} />)
+  const changeBackground = () => {
+    window.scrollY > 60 ? setHeader(true) : setHeader(false);
+  }
 
-  // window.onscroll = () => stickyHeader();
-  // let header = document.querySelector('#myHeader');
-  // let sticky = header.offsetTop;
-  
-  // const stickyHeader = () => {
-  //   window.pageYOffset > sticky ? header.classList.add('sticky') : header.classList.remove('sticky');
-  // }
+  window.onscroll = () => changeBackground();
 
   return (
     <div className="App">
-      <div className="header" id="myHeader">
-        <h1>React Students</h1>
+      <div className={header ? 'header active' : 'header'} id="myHeader">
+        <h2 className="nonBurgerMenu">Home</h2>
+        <h1 className="nonBurgerMenu">React Students</h1>
+        <h2 className="nonBurgerMenu">Menu</h2>
+        <div className="burgerMenu">
+          <img src="https://img.icons8.com/ios-glyphs/24/ffffff/menu.png" alt="burger"/>
+        </div>
       </div>
+
       <div className="studentsContainer">{studentComponents}</div>
     </div>
   );

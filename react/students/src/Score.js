@@ -1,12 +1,5 @@
 const Score = ({ scores }) => {
-    const scoreElements = scores.map(score =>
-    (
-        <tr>
-            <td>{score.date}</td>
-            <td>{score.score}</td>
-        </tr>
-    )
-    )
+
     return (
         <div className="tableDiv">
             <table className="table">
@@ -17,7 +10,16 @@ const Score = ({ scores }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {scoreElements}
+                    {
+                        scores.map((score) =>
+                        (
+                            <tr>
+                                <td>{score.date}</td>
+                                <td>{score.score}</td>
+                            </tr>
+                        ))
+
+                    }
                 </tbody>
             </table>
         </div>

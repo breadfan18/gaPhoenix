@@ -1,6 +1,7 @@
 import Score from "./Score";
 
-const Student = ({ student, key }) => {
+const Student = ({ student }) => {
+    let scoreKey = 0;
     return (
         <div className="card">
             <img src={student.img} className="card-img-top" alt="..." />
@@ -9,7 +10,7 @@ const Student = ({ student, key }) => {
                 <p className="card-text">{student.bio}</p>
             </div>
             <Score
-                index={'score' + key}
+                key={++scoreKey}
                 scores={student.scores}
             />
             <div className="card-body">

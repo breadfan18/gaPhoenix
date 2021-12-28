@@ -35,6 +35,20 @@ img {
   height: 10rem;
 }
 
+#myHeader {
+  color: white;
+  background-color: black;
+  z-index: 1;
+  padding: 0.4rem;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
 @media (max-width: 700px){
   .card {
     width: 30rem;

@@ -9,7 +9,7 @@ const Student = ({ student, key }) => {
                 <p className="card-text">{student.bio}</p>
             </div>
             <Score
-                key={'score' + key}
+                index={'score' + key}
                 scores={student.scores}
             />
             <div className="card-body">

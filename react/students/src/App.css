@@ -7,7 +7,7 @@
 }
 
 .App {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   text-align: center;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -15,8 +15,12 @@
 
 .studentsContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.studentsContainer div {
+  margin: 10px 1rem;
 }
 
 img {

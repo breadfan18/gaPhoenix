@@ -6,7 +6,7 @@ const Student = ({ student, key }) => {
             <img src={student.img} className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{student.name}</h5>
-                <p className="card-text" style={{ height: "18rem" }}>{student.bio}</p>
+                <p className="card-text" style={{ height: "10rem" }}>{student.bio}</p>
             </div>
             <Score
                 key={'score' + key}

@@ -11,7 +11,7 @@ export default function App() {
   const studentComponents = allStudents.map((student, index) => <Student key={index} student={student}/>)
   
   return (
-    <div className="App" style={{backgroundColor: 'rgba(0,0,0, 0.7)', paddingBottom: '2rem'}}>
+    <div className="App">
       <h1 style={{color: 'white'}}>React Students</h1>
       <div className="studentsContainer">{studentComponents}</div>
     </div>

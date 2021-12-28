@@ -24,4 +24,4 @@ const Score = ({ scores }) => {
     )
 }
 
-export default Score
+export default Score;

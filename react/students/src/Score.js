@@ -9,8 +9,8 @@ const Score = ({ scores }) => {
     )
     return (
         <div className="tableDiv">
-            <table className="table thead-dark">
-                <thead className="table-dark">
+            <table className="table">
+                <thead>
                     <tr>
                         <th>Date</th>
                         <th>Score</th>

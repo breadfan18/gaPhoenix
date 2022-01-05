@@ -17,8 +17,15 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newSkill = {
+      skill: state.skill, 
+      level: state.level
+    };
+    
     setState({
-      skills: [...state.skills, {skill: state.skill, level: state.level}]
+      skills: [...state.skills, newSkill],
+      skill: '',
+      level: '3'
     })
   }
 

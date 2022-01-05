@@ -8,3 +8,5 @@ skillsRouter.get('/', (req, res) => {
         res.json(skills)
     })
 })
+
+ module.exports = skillsRouter

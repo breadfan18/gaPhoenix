@@ -20,7 +20,8 @@ db.on('error', (error) => console.log(`Mongo Error: ${error.message}`));
 // Mount middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
-app.use('/api/skills', skillsController)
+app.use('/api/skills', skillsController);
+
 
 
 // Listener

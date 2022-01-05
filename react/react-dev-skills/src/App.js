@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 
 export default function App() {
@@ -28,6 +28,21 @@ export default function App() {
       level: '3'
     })
   }
+
+  async function getData() {
+    const response = await fetch('https://soup-skills-api.herokuapp.com/api/skills');
+    const data = await response.json()
+
+    setState({
+      ...state,
+      skills: data
+    })
+    
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <section>

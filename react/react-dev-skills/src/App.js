@@ -3,7 +3,7 @@ import "./styles.css";
 
 export default function App() {
   const [state, setState] = useState({
-    skills: [{ skill: "JavaScript", level: '4' }],
+    skills: [],
     skill: "",
     level: '3'
   });
@@ -15,30 +15,37 @@ export default function App() {
     })
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const newSkill = {
-      skill: state.skill, 
-      level: state.level
-    };
-    
-    setState({
-      skills: [...state.skills, newSkill],
-      skill: '',
-      level: '3'
-    })
-  }
-
   async function getData() {
     const response = await fetch('https://soup-skills-api.herokuapp.com/api/skills');
     const data = await response.json()
 
     setState({
-      ...state,
-      skills: data
+      skills: data,
+      skill: '',
+      level: '3'
     })
     
   }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const newSkill = {
+      skill: state.skill, 
+      level: state.level
+    };
+
+    await fetch('https://soup-skills-api.herokuapp.com/api/skills/addSkill', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'Application/json'
+      },
+      body: JSON.stringify(newSkill)
+    })
+
+    getData();
+    
+  }
+
 
   useEffect(() => {
     getData()

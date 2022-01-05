@@ -1,13 +1,25 @@
 import { useState } from "react";
-import "./index.css";
+import "./styles.css";
 
 export default function App() {
   const [state, setState] = useState({
-    skills: [{ skill: "JavaScript", level: 4 }]
+    skills: [{ skill: "JavaScript", level: '4' }],
+    skill: "",
+    level: '3'
   });
 
-  function addSkill() {
-    alert("ADD SKILL CLICKED");
+  function handleChange(e){
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setState({
+      skills: [...state.skills, {skill: state.skill, level: state.level}]
+    })
   }
 
   return (
@@ -20,14 +32,14 @@ export default function App() {
         </article>
       ))}
       <hr />
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <span>SKILL</span>
-          <input name="skill" />
+          <input name="skill" value={state.skill} onChange={handleChange}/>
         </label>
         <label>
           <span>LEVEL</span>
-          <select name="level">
+          <select name="level" value={state.level} onChange={handleChange}>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

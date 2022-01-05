@@ -3,10 +3,14 @@ const skillsRouter = express.Router();
 const Skill = require('../models/skill');
 
 
-skillsRouter.get('/', (req, res) => {
-    Skill.find({}, (err, skills) => {
-        res.json(skills)
-    })
+skillsRouter.get('/', async (req, res) => {
+    const skills = await Skill.find({})
+    res.json(skills)
+})
+
+skillsRouter.post('/addSkill', async (req, res) => {
+    const skill = await Skill.create(req.body)
+    res.send(skill)  
 })
 
  module.exports = skillsRouter

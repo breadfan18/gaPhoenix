@@ -20,6 +20,7 @@ db.on('error', (error) => console.log(`Mongo Error: ${error.message}`));
 // Mount middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(express.json()) //this will create req.body with incoming JSON
 app.use('/api/skills', skillsController);
 
 

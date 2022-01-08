@@ -44,7 +44,7 @@ const Index = ({ people, createPeople }) => {
 
     return (
         <section>
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     value={newForm.name}

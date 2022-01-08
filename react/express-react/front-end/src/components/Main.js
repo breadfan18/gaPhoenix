@@ -29,15 +29,13 @@ const Main = (props) => {
     return (
         <main>
             <Switch>
-                <Route exact path='/'>
+                <Route exact path='/people'>
                     <Index 
                         people={people}
                         createPeople={createPeople}
                     />
                 </Route>    
-                <Route path="/people/:id" 
-                    render={(rp) => <Show {...rp} />} 
-                />
+                <Route path="/people/:id" render={(rp) => <Show {...rp} />} />
             </Switch>
         </main>
     )

@@ -1,5 +1,6 @@
-const Component = (props) => {
-    return <h1>Component Name</h1>
+const Show = (props) => {
+    console.log(props)
+    return <h1>Show page</h1>
 }
 
-export default Component
+export default Show

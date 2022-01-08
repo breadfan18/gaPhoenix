@@ -35,7 +35,7 @@ const Main = (props) => {
                         createPeople={createPeople}
                     />
                 </Route>    
-                <Route path="/people/:id" render={(rp) => <Show {...rp} />} />
+                <Route path="/people/:id" render={(rp) => <Show people={people} {...rp}/>} />
             </Switch>
         </main>
     )

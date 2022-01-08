@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 const Nav = (props) => {
     return (
         <div className="nav">
-            <Link>
+            <Link to="/price">
                 <div>CRYPTO PRICES</div>
             </Link>
-            <Link>
+            <Link to="/currencies">
                 <div>CRYPTO CURRENCIES</div>
-            </Link>
-            <Link>
-                <div>MAIN</div>
             </Link>
 
         </div>
     )
 }
+
+export default Nav;

@@ -1,6 +1,5 @@
 const Show = (props) => {
     const thisPerson = props.people.find(person => person._id === props.match.params.id)
-    console.log(thisPerson)
     return (
         <div className="personDetails">
             <h1>{thisPerson.name}</h1>

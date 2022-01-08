@@ -1,7 +1,33 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 const Index = ({ people, createPeople }) => {
+
+    const [ newForm, setNewForm ] = useState({
+        name: '',
+        image: '',
+        title: ''
+    })
+
+    const handleChange = (e) => {
+        setNewForm(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createPeople(newForm);
+        setNewForm({
+            name: '',
+            image: '',
+            title: ''
+        })
+    }
+
+
     const loaded = () => {
         return people.map(person => (
             <div className='person' key={person._id}>
@@ -14,9 +40,37 @@ const Index = ({ people, createPeople }) => {
         ))
     }
 
-    const loading = () => <h1>Loading...</h1>
+    const loading = () => (<h1>Loading...</h1>)
 
-    return people ? loaded() : loading()
+    return (
+        <section>
+            <form action="">
+                <input 
+                    type="text" 
+                    value={newForm.name}
+                    name='name'
+                    placeholder='name'
+                    onChange={handleChange}
+                />
+                <input 
+                    type="text" 
+                    value={newForm.image}
+                    name='image'
+                    placeholder='image'
+                    onChange={handleChange}
+                />
+                <input 
+                    type="text" 
+                    value={newForm.title}
+                    name='title'
+                    placeholder='title'
+                    onChange={handleChange}
+                />
+                <input type="submit" value='Create Person' />
+                {people ? loaded() : loading()}
+            </form>
+        </section>
+    )
 }
 
 

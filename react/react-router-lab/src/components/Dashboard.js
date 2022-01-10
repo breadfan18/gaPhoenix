@@ -8,8 +8,8 @@ const About = ({ stocks }) => {
                     {stock.name}
                 </Link>
             </td>
-            <td>{stock.lastPrice}</td>
-            <td>{stock.change}</td>
+            <td>${stock.lastPrice}</td>
+            <td style={{color: `${stock.change >= 0 ? 'green' : 'red'}`}}>{stock.change}</td>
             <hr />
         </tr>
 
@@ -19,7 +19,7 @@ const About = ({ stocks }) => {
     return (
         <div>
             <h1>Available Stocks</h1>
-            <table>
+            <table className='table'>
                 <thead>
                     <tr>
                         <th>Company Name</th>

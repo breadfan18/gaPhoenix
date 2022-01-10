@@ -11,8 +11,8 @@ const Index = ({ people, createPeople }) => {
     })
 
     const handleChange = (e) => {
-        setNewForm(moomoo => ({
-            ...moomoo,
+        setNewForm(prevState => ({
+            ...prevState,
             [e.target.name]: e.target.value
         }))
     }

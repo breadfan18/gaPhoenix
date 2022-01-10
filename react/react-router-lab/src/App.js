@@ -1,6 +1,6 @@
 // IMPORT useState
 import React, { useState } from "react";
-import "./index.css";
+import stocks from './stockData';
 
 export default function App() {
 

@@ -2,11 +2,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    max-width: 500px;
+    background-color: antiquewhite;
 }
 
 #createPersonForm * {
     margin: 5px;
+}
+
+#peopleContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
 }
 
 .titleField, .submitBtn {
@@ -17,4 +23,10 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.person {
+    text-align: center;
+    border: 2px solid gray;
+    border-radius: 10px;
 }

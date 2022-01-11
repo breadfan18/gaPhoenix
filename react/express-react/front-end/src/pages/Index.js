@@ -69,7 +69,9 @@ const Index = ({ people, createPeople }) => {
                 />
                 <input type="submit" value='Create Person' className='submitBtn' />
             </form>
-                {people ? loaded() : loading()}
+            <div id='peopleContainer'>
+                {people ? loaded() : loading()}    
+            </div>    
         </section>
     )
 }

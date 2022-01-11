@@ -44,7 +44,7 @@ const Index = ({ people, createPeople }) => {
 
     return (
         <section>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="createPersonForm">
                 <input 
                     type="text" 
                     value={newForm.name}
@@ -60,15 +60,16 @@ const Index = ({ people, createPeople }) => {
                     onChange={handleChange}
                 />
                 <input 
+                    className='titleField'
                     type="text" 
                     value={newForm.title}
                     name='title'
                     placeholder='title'
                     onChange={handleChange}
                 />
-                <input type="submit" value='Create Person' />
-                {people ? loaded() : loading()}
+                <input type="submit" value='Create Person' className='submitBtn' />
             </form>
+                {people ? loaded() : loading()}
         </section>
     )
 }

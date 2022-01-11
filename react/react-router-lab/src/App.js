@@ -23,7 +23,7 @@ export default function App() {
         <Route exact path='/about'>
           <About />
         </Route>
-        <Route path="/stocks/:id" render={(rp) => <Stock stocks={stocks} {...rp}/>} />
+        <Route path="/stocks/:id" render={(props) => <Stock stocks={stocks} {...props}/>} />
         <Route exact path='/stocks'>
           <Dashboard 
             stocks={stocks}

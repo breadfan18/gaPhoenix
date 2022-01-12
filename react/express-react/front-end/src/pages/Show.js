@@ -34,7 +34,6 @@ const Show = (props) => {
                 <input 
                     type="text" 
                     name='name'
-                    value={editForm.name}
                     placeholder={editForm.name}
                     onChange={handleChange}
                 />

@@ -61,7 +61,6 @@ const Main = (props) => {
                         people={people} 
                         updatePeople={updatePerson}
                         deletePerson={deletePerson}
-
                     />)} />
         </Switch>
         </main>

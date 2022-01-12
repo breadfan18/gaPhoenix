@@ -21,7 +21,27 @@ const Main = (props) => {
             },
             body: JSON.stringify(person)
         })
-        getPeople()
+        getPeople();
+    }
+
+    const updatePeople = async (person, id) => {
+        await fetch(`${URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "Application/json",
+            },
+            body: JSON.stringify(person)
+        })
+
+        getPeople();
+    }
+
+    const deletePeople = async (id) => {
+        await fetch(`${URL}/${id}`, {
+            method: 'DELETE'
+        })
+
+        getPeople();
     }
 
     useEffect(() => getPeople(), [])
@@ -39,6 +59,8 @@ const Main = (props) => {
                     <Show 
                         {...rp}
                         people={people} 
+                        updatePeople={updatePeople}
+
                     />)} />
         </Switch>
         </main>

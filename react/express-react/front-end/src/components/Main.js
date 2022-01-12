@@ -25,6 +25,8 @@ const Main = (props) => {
     }
 
     const updatePerson = async (person, id) => {
+        console.log(`${URL}/${id}`);
+
         await fetch(`${URL}/${id}`, {
             method: 'PUT',
             headers: {
@@ -59,7 +61,7 @@ const Main = (props) => {
                     <Show 
                         {...rp}
                         people={people} 
-                        updatePeople={updatePerson}
+                        updatePerson={updatePerson}
                         deletePerson={deletePerson}
                     />)} />
         </Switch>

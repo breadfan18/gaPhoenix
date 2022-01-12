@@ -13,7 +13,9 @@ const Show = (props) => {
     }
 
     const handleSubmit = (e) => {
-
+        e.preventDefault();
+        props.updatePerson(editForm, person._id);
+        props.history.push('/people')
     }
 
 
@@ -22,29 +24,27 @@ const Show = (props) => {
             <h1>{person.name}</h1>
             <img src={person.image} alt={person.name} />
             <h3>{person.title}</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
-                    value={editForm.name}
                     name='name'
-                    placeholder="name"
+                    value={editForm.name}
+                    placeholder={editForm.name}
                     onChange={handleChange}
                 />
                 <input 
                     type="text" 
-                    value={editForm.image}
                     name='image'
-                    placeholder="image URL"
+                    placeholder={editForm.image}
                     onChange={handleChange}
                 />
                 <input 
                     type="text" 
-                    value={editForm.title}
                     name='title'
-                    placeholder="title"
+                    placeholder={editForm.title}
                     onChange={handleChange}
                 />
-                <input type="submit" value="Update Person" />
+                <input type="submit" value="Update Person"/>
             </form>
         </div>
 

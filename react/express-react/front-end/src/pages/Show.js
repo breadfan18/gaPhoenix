@@ -15,9 +15,11 @@ const Show = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.updatePerson(editForm, person._id);
+        
+        // Then redirect them back to the main dashboard page
         props.history.push('/people')
-    }
 
+    }
 
     return (
         <div className="personDetails">

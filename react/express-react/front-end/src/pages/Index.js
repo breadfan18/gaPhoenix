@@ -27,7 +27,6 @@ const Index = ({ people, createPeople }) => {
         })
     }
 
-
     const loaded = () => {
         return people.map(person => (
             <div className='person' key={person._id}>

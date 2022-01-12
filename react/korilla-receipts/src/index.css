@@ -1,0 +1,27 @@
+.receipt {
+    border: 2px solid orange;
+    min-width: 200px;
+    padding: 20px;
+}
+
+.receiptsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.receiptsContainer > article{
+    margin: 10px;
+}
+
+
+.orderDetails *{
+    margin: 2px;
+    color: blueviolet;
+}
+
+.cost {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}

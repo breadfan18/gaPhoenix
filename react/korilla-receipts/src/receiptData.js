@@ -1,4 +1,4 @@
-const receipts = [
+const receiptsArr = [
     {
       id: 1,
       person: "Karolin",
@@ -40,4 +40,4 @@ const receipts = [
     },
   ]
 
-export default receipts;
+export default receiptsArr;

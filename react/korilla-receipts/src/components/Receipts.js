@@ -1,6 +1,14 @@
-const Receipts = (props) => {
+import Receipt from "./Receipt";
+
+const Receipts = ({ receipts }) => {
+    const receiptElems = receipts.map(r => (
+        <Receipt receipt={r}/> 
+    ))
+
     return (
-        <h1>Receipts</h1>
+        <div className="receiptsContainer">
+            {receiptElems}
+        </div>
     )
 }
 

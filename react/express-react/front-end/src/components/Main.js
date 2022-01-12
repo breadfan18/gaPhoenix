@@ -25,8 +25,6 @@ const Main = (props) => {
     }
 
     const updatePerson = async (person, id) => {
-        console.log(`${URL}/${id}`);
-
         await fetch(`${URL}/${id}`, {
             method: 'PUT',
             headers: {

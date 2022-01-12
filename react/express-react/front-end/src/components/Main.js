@@ -24,7 +24,7 @@ const Main = (props) => {
         getPeople();
     }
 
-    const updatePeople = async (person, id) => {
+    const updatePerson = async (person, id) => {
         await fetch(`${URL}/${id}`, {
             method: 'PUT',
             headers: {
@@ -36,7 +36,7 @@ const Main = (props) => {
         getPeople();
     }
 
-    const deletePeople = async (id) => {
+    const deletePerson = async (id) => {
         await fetch(`${URL}/${id}`, {
             method: 'DELETE'
         })
@@ -59,7 +59,8 @@ const Main = (props) => {
                     <Show 
                         {...rp}
                         people={people} 
-                        updatePeople={updatePeople}
+                        updatePeople={updatePerson}
+                        deletePerson={deletePerson}
 
                     />)} />
         </Switch>

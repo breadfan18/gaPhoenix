@@ -15,7 +15,11 @@ const Receipt = ({ receipt }) => {
             <div className="cost">
                 <p>${receipt.order.cost}</p>
                 <form>
-                    <input type="submit" value={receipt.paid}/>
+                    <input 
+                        type="submit" 
+                        value={`Paid: ${receipt.paid ? 'Yes' : 'No'}`}
+                        style={{color: 'white', backgroundColor: `${receipt.paid ? 'green' : 'red'}`}}
+                    />
                 </form>
             </div>
             

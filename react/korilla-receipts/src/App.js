@@ -10,13 +10,21 @@ import Receipts from "./components/Receipts";
 
 export default function App() {
 
-  const [ receipts, setReceipts ] = useState(receiptsArr);
+  const [ receiptState, setReceiptState ] = useState({
+    receipts: receiptsArr,
+    filteredReceipts: [],
+    showFilter: true
+  });
+
+  const handleSearch = (e) => {
+    
+  }
 
   return (
     <div className="App">
-      <h1>Korilla Receipts</h1>
+      <h1 style={{textAlign: 'center'}}>Korilla Receipts</h1>
       <Form />
-      <Receipts receipts={receipts}/>
+      <Receipts receipts={receiptState.receipts}/>
     </div>
   );
 }

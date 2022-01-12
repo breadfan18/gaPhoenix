@@ -10,7 +10,7 @@ const receiptsArr = [
         drink: "Korchata",
         cost: 22,
       },
-      paid: false,
+      paid: true,
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const receiptsArr = [
         protein: "Organic Tofu",
         rice: "none",
         sauce: "K'lla",
-        drink: "Sparkling Blood Orange Soda",
+        drink: "Orange Soda",
         cost: 20,
       },
       paid: false,

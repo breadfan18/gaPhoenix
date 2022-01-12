@@ -14,6 +14,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <h1>Korilla Receipts</h1>
       <Form />
       <Receipts receipts={receipts}/>
     </div>

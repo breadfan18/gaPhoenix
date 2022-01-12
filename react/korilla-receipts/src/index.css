@@ -1,6 +1,7 @@
 .receipt {
     border: 2px solid orange;
-    min-width: 200px;
+    width: 200px;
+    
     padding: 20px;
 }
 
@@ -16,6 +17,9 @@
 
 .orderDetails *{
     margin: 2px;
+}
+
+.orderItems {
     color: blueviolet;
 }
 
@@ -24,4 +28,13 @@
     justify-content: space-around;
     align-items: center;
 
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form * {
+    margin: 0 5px;
 }

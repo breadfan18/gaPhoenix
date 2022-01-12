@@ -1,6 +1,11 @@
 const Form = (props) => {
     return (
-        <h1>Form</h1>
+        <div className="form">
+            <form>
+                <input type="text" />
+                <input type="submit" />
+            </form>
+        </div>
     )
 }
 

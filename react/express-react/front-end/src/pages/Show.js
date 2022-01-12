@@ -18,7 +18,11 @@ const Show = (props) => {
         
         // Then redirect them back to the main dashboard page
         props.history.push('/people')
+    }
 
+    const handleDelete = (e) => {
+        props.deletePerson(person._id);
+        props.history.push('/people');
     }
 
     return (
@@ -47,6 +51,9 @@ const Show = (props) => {
                     onChange={handleChange}
                 />
                 <input type="submit" value="Update Person"/>
+            </form>
+            <form onSubmit={handleDelete}>
+                <input type="submit" value="Delete Person"/>
             </form>
         </div>
 

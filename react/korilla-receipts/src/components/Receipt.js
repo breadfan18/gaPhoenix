@@ -1,4 +1,4 @@
-const Receipt = ({ receipt }) => {
+const Receipt = ({ receipt, handleClick }) => {
     
     return (
         <article className="receipt">
@@ -14,13 +14,14 @@ const Receipt = ({ receipt }) => {
             <hr />
             <div className="cost">
                 <p>${receipt.order.cost}</p>
-                <form>
+                
                     <input 
                         type="submit" 
                         value={`Paid: ${receipt.paid ? 'Yes' : 'No'}`}
                         style={{color: 'white', backgroundColor: `${receipt.paid ? 'green' : 'red'}`}}
+                        onClick={() => handleClick(receipt.id)}
                     />
-                </form>
+             
             </div>
             
         </article>

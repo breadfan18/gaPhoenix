@@ -38,16 +38,40 @@ export default function App() {
         r.paid = !r.paid
       }
     });
-
     setReceiptState({
       ...receiptState,
     })
   }
 
+  const handleFilter = (filter) => {
+    if(filter === null){
+      setReceiptState({
+        ...receiptState,
+        filteredReceipts: [],
+        showFilter: false
+      })
+    }else if (filter === true) {
+      setReceiptState({
+        ...receiptState,
+        filteredReceipts: receiptState.receipts.filter(r => r.paid === true),
+        showFilter: true
+      })
+    }else if (filter === false) {
+      setReceiptState({
+        ...receiptState,
+        filteredReceipts: receiptState.receipts.filter(r => r.paid === false),
+        showFilter: true
+      })
+    }
+  }
+
   return (
     <div className="App">
       <h1 style={{ textAlign: 'center' }}>Korilla Receipts</h1>
-      <Form handleSearch={handleSearch} />
+      <Form 
+        handleSearch={handleSearch} 
+        handleFilter={handleFilter}
+      />
       <Receipts
         receipts={receiptState.receipts}
         filteredReceipts={receiptState.filteredReceipts}

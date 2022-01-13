@@ -13,12 +13,16 @@ export default function App() {
   const [ receiptState, setReceiptState ] = useState({
     receipts: receiptsArr,
     filteredReceipts: [],
-    showFilter: true
+    showFilter: false
   });
 
   const handleSearch = (searchTerm) => {
       if (searchTerm === ""){
-        setReceiptState(...receiptState)
+        setReceiptState({
+          ...receiptState,
+          filteredReceipts: [],
+          showFilter: false
+        })
       }else {
         setReceiptState({
           ...receiptState,
@@ -32,7 +36,11 @@ export default function App() {
     <div className="App">
       <h1 style={{textAlign: 'center'}}>Korilla Receipts</h1>
       <Form handleSearch={handleSearch}/>
-      <Receipts receipts={receiptState.receipts}/>
+      <Receipts 
+        receipts={receiptState.receipts}
+        filteredReceipts={receiptState.filteredReceipts}
+        showFilter={receiptState.showFilter}  
+      />
     </div>
   );
 }

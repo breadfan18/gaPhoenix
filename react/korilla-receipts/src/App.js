@@ -16,10 +16,6 @@ export default function App() {
     showFilter: true
   });
 
-  const handleSearch = (e) => {
-    
-  }
-
   return (
     <div className="App">
       <h1 style={{textAlign: 'center'}}>Korilla Receipts</h1>

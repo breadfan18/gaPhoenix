@@ -1,8 +1,8 @@
 import Receipt from "./Receipt";
 
 const Receipts = ({ receipts }) => {
-    const receiptElems = receipts.map(r => (
-        <Receipt receipt={r}/> 
+    const receiptElems = receipts.map((r, i) => (
+        <Receipt receipt={r} key={i+1}/> 
     ))
 
     return (

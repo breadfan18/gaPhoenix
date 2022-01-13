@@ -31,7 +31,7 @@ const receiptsArr = [
       order: {
         main: "Salad Bowl",
         protein: "Organic Tofu",
-        rice: "none",
+        rice: "Jasmine Rice",
         sauce: "K'lla",
         drink: "Orange Soda",
         cost: 20,

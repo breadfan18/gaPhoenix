@@ -1,5 +1,5 @@
 const Receipt = ({ receipt, handleClick }) => {
-    
+
     return (
         <article className="receipt">
             <h3>{receipt.person}</h3>
@@ -14,16 +14,13 @@ const Receipt = ({ receipt, handleClick }) => {
             <hr />
             <div className="cost">
                 <p>${receipt.order.cost}</p>
-                
-                    <input 
-                        type="submit" 
-                        value={`Paid: ${receipt.paid ? 'Yes' : 'No'}`}
-                        style={{color: 'white', backgroundColor: `${receipt.paid ? 'green' : 'red'}`}}
-                        onClick={() => handleClick(receipt.id)}
-                    />
-             
+                <input
+                    type="submit"
+                    value={`Paid: ${receipt.paid ? 'Yes' : 'No'}`}
+                    style={{ color: 'white', backgroundColor: `${receipt.paid ? 'green' : 'red'}` }}
+                    onClick={() => handleClick(receipt.id)}
+                />
             </div>
-            
         </article>
     )
 }

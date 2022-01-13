@@ -5,7 +5,6 @@ const Form = ({ handleSearch, handleFilter }) => {
   const [formState, setFormState] = useState(null);
 
   const handleChange = (e) => {
-    console.log(e.target.value)
     setFormState({
       [e.target.name]: e.target.value
     })

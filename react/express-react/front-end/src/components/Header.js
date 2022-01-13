@@ -6,22 +6,23 @@ const Header = (props) => (
     <Link to="/">
       <div>People App</div>
     </Link>
-    {props.user ?
-      <>
-        <button onClick={logout}>Logout</button>
-        <img
-          src={props.user.photoURL}
-          alt=""
-          style={{ 
-              height: '3rem', 
-              width: '3rem', 
-              borderRadius: '50%', 
+    {
+      props.user ?
+        <>
+          <button onClick={logout} style={{ marginLeft: 'auto' }}>Logout</button>
+          <img
+            src={props.user.photoURL}
+            alt=""
+            style={{
+              height: '3rem',
+              width: '3rem',
+              borderRadius: '50%',
               marginLeft: 'auto'
-          }}
+            }}
           />
-      </>
-      :
-      <button onClick={login}>Login</button>}
+        </>
+        :
+        <button onClick={login}>Login</button>}
 
   </nav>
 )

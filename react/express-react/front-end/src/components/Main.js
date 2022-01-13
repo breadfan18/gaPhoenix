@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Route, Switch } from "react-router-dom"
+import { Redirect, Route, Switch } from "react-router-dom"
 import Index from "../pages/Index"
 import Show from "../pages/Show"
 
@@ -53,15 +53,20 @@ const Main = (props) => {
                     <Index 
                         people={people}
                         createPeople={createPeople}
+                        user={props.user}
                     />
                 </Route>    
                 <Route path="/people/:id" render={(rp) => (
+                    props.user ? 
                     <Show 
                         {...rp}
                         people={people} 
                         updatePerson={updatePerson}
                         deletePerson={deletePerson}
-                    />)} />
+                    />
+                    :
+                    <Redirect to='/people' />
+                    )} />
         </Switch>
         </main>
     )

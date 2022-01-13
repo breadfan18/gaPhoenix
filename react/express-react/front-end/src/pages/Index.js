@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Index = ({ people, createPeople }) => {
+const Index = ({ people, createPeople, user }) => {
 
     const [ newForm, setNewForm ] = useState({
         name: '',
@@ -18,6 +18,7 @@ const Index = ({ people, createPeople }) => {
     }
 
     const handleSubmit = (e) => {
+        if(!user) return;
         e.preventDefault();
         createPeople(newForm);
         setNewForm({
@@ -66,7 +67,7 @@ const Index = ({ people, createPeople }) => {
                     placeholder='title'
                     onChange={handleChange}
                 />
-                <input type="submit" value='Create Person' className='submitBtn' />
+                <input disabled={!user} type="submit" value='Create Person' className='submitBtn' />
             </form>
             <div id='peopleContainer'>
                 {people ? loaded() : loading()}    

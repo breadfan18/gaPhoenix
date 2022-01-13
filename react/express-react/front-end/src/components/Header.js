@@ -15,7 +15,8 @@ const Header = (props) => (
           style={{ 
               height: '3rem', 
               width: '3rem', 
-              borderRadius: '50%' 
+              borderRadius: '50%', 
+              marginLeft: 'auto'
           }}
           />
       </>

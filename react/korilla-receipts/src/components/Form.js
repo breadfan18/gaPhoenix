@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = (props) => {
+const Form = ({ handleSearch }) => {
 
     const [ formState , setFormState ] = useState(null);
 
@@ -9,11 +9,19 @@ const Form = (props) => {
       setFormState({
         [e.target.name]: e.target.value
       })
+
+      handleSearch(e.target.value)
     }
+
     return (
         <div className="form">
             <form>
-                <input type="text" onChange={handleChange}/>
+                <input 
+                  type="text" 
+                  name="term" 
+                  onChange={handleChange}
+                  placeholder="Search a name.."
+                />
                 <input type="submit" />
             </form>
         </div>

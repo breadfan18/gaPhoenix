@@ -16,10 +16,22 @@ export default function App() {
     showFilter: true
   });
 
+  const handleSearch = (searchTerm) => {
+      if (searchTerm === ""){
+        setReceiptState(...receiptState)
+      }else {
+        setReceiptState({
+          ...receiptState,
+          filteredReceipts: receiptState.receipts.filter(r => r.person.toLowerCase().includes(searchTerm.toLowerCase())),
+          showFilter: true
+        })
+      }
+  }
+
   return (
     <div className="App">
       <h1 style={{textAlign: 'center'}}>Korilla Receipts</h1>
-      <Form />
+      <Form handleSearch={handleSearch}/>
       <Receipts receipts={receiptState.receipts}/>
     </div>
   );

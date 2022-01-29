@@ -24,25 +24,6 @@ const Main = (props) => {
         getPeople();
     }
 
-    const updatePerson = async (person, id) => {
-        await fetch(`${URL}/${id}`, {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "Application/json",
-            },
-            body: JSON.stringify(person)
-        })
-
-        getPeople();
-    }
-
-    const deletePerson = async (id) => {
-        await fetch(`${URL}/${id}`, {
-            method: 'DELETE'
-        })
-
-        getPeople();
-    }
 
     useEffect(() => getPeople(), [])
 
@@ -61,8 +42,6 @@ const Main = (props) => {
                     <Show 
                         {...rp}
                         people={people} 
-                        updatePerson={updatePerson}
-                        deletePerson={deletePerson}
                     />
                     :
                     <Redirect to='/people' />

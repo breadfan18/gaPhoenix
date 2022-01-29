@@ -30,21 +30,21 @@ const Main = (props) => {
     return (
         <main>
             <Switch>
-                <Route exact path='/people'>
+                <Route exact path='/houses'>
                     <Index 
                         people={people}
                         createPeople={createPeople}
                         user={props.user}
                     />
                 </Route>    
-                <Route path="/people/:id" render={(rp) => (
+                <Route path="/houses/:id" render={(rp) => (
                     props.user ? 
                     <Show 
                         {...rp}
                         people={people} 
                     />
                     :
-                    <Redirect to='/people' />
+                    <Redirect to='/houses' />
                     )} />
         </Switch>
         </main>

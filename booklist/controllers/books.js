@@ -28,7 +28,7 @@ booksRouter.get('/books/seed', async (req, res) => {
         },
         {
             title: 'David De Gea - Life in the dumps',
-            author: 'Jose'
+            author: 'Jose Mourinho'
         },
     ]
     await Book.deleteMany({}) //deleted everything in the database

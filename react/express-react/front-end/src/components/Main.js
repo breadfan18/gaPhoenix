@@ -7,6 +7,16 @@ const Main = (props) => {
     const [ people, setPeople ] = useState(null);
     const URL = 'https://express-react-back-end.herokuapp.com/people';
 
+    useEffect(() => {
+        console.log(`This runs everytime ${people} state changes`)
+
+        return () => {
+            console.log(`This return blocks is useEffect cleanup. This always runs before the code above,
+             to cleanup whatever we did last time`)
+        }
+    }, [people])
+
+
     const getPeople = async () => {
         const response = await fetch(URL);
         const data = await response.json();
@@ -73,3 +83,4 @@ const Main = (props) => {
 }
 
 export default Main
+

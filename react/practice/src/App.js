@@ -1,27 +1,34 @@
 // IMPORT useState
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Checkbox from "./CheckBox";
 import "./index.css";
-import Form from "./Form";
-import Display from "./Display";
 
 export default function App() {
-  const API_KEY = 'cYY2RGnMz0QbUuZwah7huztQSLrRZ2mE';
-  const [ gif, setGif ] = useState('');
 
-  const getGif = async () => {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`);
-    const data = await response.json();
+  const [ count, setCount ] = useState(0);
+  const [ checked, setChecked ] = useState(false)
 
-    setGif(data.data.images.original.url);
+  const increment = () => {
+    setCount(count + 1)
   }
 
-  useEffect(() => getGif(), [])
+  const decrement = () => {
+    setCount(count - 1)
+  }
+
+  const handleCheckbox = () => {
+    setChecked(!checked);
+  }
 
   return (
-    <div className="App">
-      <h1>Giffer</h1>
-      <Form getGif={getGif}/>
-      <Display gif={gif}/> 
+    <div className="App" style={{display: 'flex', justifyContent: 'center'}}>
+     <button onClick={() => decrement()}>Decrease</button>
+     <h1 style={{margin: '0 20px'}}>{count}</h1>
+     <button onClick={() => increment()}>Increase</button>
+     <Checkbox 
+        checked={checked}
+        setChecked={handleCheckbox}
+      />
     </div>
   );
 }
